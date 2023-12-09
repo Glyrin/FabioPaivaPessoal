@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Disciplina</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Lista.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}"></div>
+
+        <div th:class="conteudo">
+            <div th:if="${!listaDisciplina.isEmpty()}" class="formulario">
+                <h1>Lista de Disciplinas</h1>
+                <table>
+                    <thead>
+                    <tr style="padding-bottom: 5px">
+                        <th style="width: 50px">ID</th>
+                        <th>Nome</th>
+                        <th style="width: 350px">Acções</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="inst: ${listaDisciplina}">
+                        <td th:text="${inst.id}" style="text-align: center"></td>
+                        <td th:text="${inst.nome}"></td>
+                        <td style="text-align: center">
+                            <button style="margin-right:0"><a th:href="@{/disciplina/view/{id}(id=${inst.id})}"><span>Ver</span></a></button>
+                            <button style="margin-right:0"><a th:href="@{/disciplina/edit/{id}(id=${inst.id})}"><span>Editar</span></a></button>
+                            <button style="margin-right:0"><a th:href="@{/disciplina/delete/{id}(id=${inst.id})}"><span>Apagar</span></a></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div th:unless="${!listaDisciplina.isEmpty()}" class="formulario">
+                <h1>Lista de Disciplinas</h1>
+                <h2>Não existem dados a apresentar</h2>
+            </div>
+        </div>
+
+        <div th:replace="~{fragments/Footer::footer}"></div>
+    </body>
+</html>

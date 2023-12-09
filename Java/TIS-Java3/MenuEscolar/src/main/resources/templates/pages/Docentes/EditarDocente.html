@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>LSD: Docente</title>
+    <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+    <link th:href="@{/CSS/Formulario.css}" rel="stylesheet">
+    <link th:href="@{/CSS/Formulario2.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+<div th:replace="~{fragments/Header::header}"></div>
+
+<div class="conteudo">
+    <div th:class="formulario">
+    <h1>Editar Docente</h1>
+    <div th:if="${falha}">
+        <span th:text="${falha}" class="erro"></span>
+    </div>
+    <form th:action="@{/docentes/update/{id}(id=${Docente.id})}" th:object="${Docente}" method="post">
+        <input type="hidden" name="id" th:field="*{id}">
+<table>
+    <tr>
+        <td>
+            <label for="nome"><h3>Nome(s) *</h3></label><br>
+            <input type="text" id="nome" th:field="*{nome}"><br>
+            <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="erro"></span><br>
+        </td>
+        <td>
+            <label for="apelido"><h3>Apelido(s) *</h3></label><br>
+            <input type="text" id="apelido" th:field="*{apelido}"><br>
+            <span th:if="${#fields.hasErrors('apelido')}" th:errors="*{apelido}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="dataNascimento"><h3>Data de Nascimento *</h3></label><br>
+            <input type="date" id="dataNascimento" max="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" th:field="*{dataNascimento}"><br>
+            <span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}" class="erro"></span><br>
+        </td>
+        <td>
+            <label for="cc"><h3>Nº CC *</h3></label><br>
+            <input type="number" min="1" step="1" id="cc" th:field="*{cc}"><br>
+            <span th:if="${#fields.hasErrors('cc')}" th:errors="*{cc}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="especie"><h3>Espécie *</h3></label><br>
+            <select name="especie" id="especie">
+                <option th:each="inst: ${listaEspecies}" th:value="${inst}" th:text="${inst}" th:selected="${inst==Docente.especie}"></option>
+            </select><br>
+            <span th:if="${#fields.hasErrors('especie')}" th:errors="*{especie}" class="erro"></span><br>
+        </td>
+        <td>
+            <label for="sexo"><h3>Sexo *</h3></label><br>
+            <select name="sexo" id="sexo">
+                <option th:each="inst: ${listaSexos}" th:value="${inst}" th:text="${inst}" th:selected="${inst==Docente.sexo}"></option>
+            </select><br>
+            <span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="telefone"><h3>Telefone *</h3></label><br>
+            <input type="number" min="1"  step="1" id="telefone" th:field="*{telefone}"><br>
+            <span th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="erro"></span><br>
+        </td>
+        <td>
+            <label for="email"><h3>Email *</h3></label><br>
+            <input type="text" id="email" th:field="*{email}"><br>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <label for="morada"><h3>Morada *</h3></label><br>
+            <input type="text" id="morada" th:field="*{morada}"style="width: 513px"><br><br>
+            <input type="text" min="1" id="codPostal" th:field="*{codPostal}">
+            <input type="text" id="localidade" th:field="*{localidade}"><br>
+            <span th:if="${#fields.hasErrors('morada')}" th:errors="*{morada}" class="erro"></span><br>
+            <span th:if="${#fields.hasErrors('codPostal')}" th:errors="*{codPostal}" class="erro"></span><br>
+            <span th:if="${#fields.hasErrors('localidade')}" th:errors="*{localidade}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="nif"><h3>NIF *</h3></label><br>
+            <input type="number" min="1"  step="1" id="nif" th:field="*{nif}"><br>
+            <span th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}" class="erro"></span><br>
+        </td>
+        <td>
+            <label for="niss"><h3>NISS *</h3></label><br>
+            <input type="number" min="1"  step="1" id="niss" th:field="*{niss}"><br>
+            <span th:if="${#fields.hasErrors('niss')}" th:errors="*{niss}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <label for="iban"><h3>IBAN *</h3></label><br>
+            <input type="text" min="1" id="iban" th:field="*{iban}" style="width: 513px"><br>
+            <span th:if="${#fields.hasErrors('iban')}" th:errors="*{iban}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <label for="tipoContrato"><h3>Tipo de contrato *</h3></label><br>
+            <select name="tipoContrato" id="tipoContrato">
+                <option th:each="inst: ${listaTiposContratos}" th:value="${inst}" th:text="${inst}" th:selected="${inst==Docente.tipoContrato}"></option>
+            </select><br>
+            <span th:if="${#fields.hasErrors('tipoContrato')}" th:errors="*{tipoContrato}" class="erro"></span><br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <label><h3>Especializações:</h3></label><br>
+            <div th:each="inst:${listaEspecializacoes}">
+                    <span>
+                        <input type="checkbox" th:field="*{especializacoes}" th:value="${inst.id}"  th:class="checkbox2">
+                        <label th:text="${inst.nome}"></label><br>
+                    </span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><br><br>
+            <label for="ativo"><h3>Ativo</h3></label><br>
+            <input type="checkbox" id="ativo" th:field="*{ativo}"><br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <label for="detalhes"><h3>Detalhes</h3></label><br>
+            <textarea type="text" cols="80" rows="10" id="detalhes" th:field="*{detalhes}"></textarea><br>
+        </td>
+    </tr>
+</table>
+        <div align="center"><br><br>
+        <input type="submit" value="Enviar" th:class="botao">
+        </div>
+    </form>
+        <div>
+            <button class="direita"><a th:href="@{/docentes/list}"><span>Cancelar</span></a></button><br><br>
+        </div>
+</div>
+<div th:class="espaco"></div>
+</div>
+<div th:replace="~{fragments/Footer::footer}"></div>
+</body>
+</html>

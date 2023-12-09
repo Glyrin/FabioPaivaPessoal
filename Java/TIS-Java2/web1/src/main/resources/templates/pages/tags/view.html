@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta charset="UTF-8">
+      <title>Ver</title>
+      <link th:href="@{/css/listarDados.css}" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+  <h1>Ver Tag</h1>
+  <div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tag</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td th:text="${inst.id}" style="text-align: center"></td>
+      <td th:text="${inst.nome}" style="text-align: center"></td>
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+      <th colspan="3">Acções</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td colspan="3" style="text-align: center">
+        <button class="custom-btn btn-31"><a href="/tags/list"><span>Voltar</span></a></button>
+        <button class="custom-btn btn-32"><a th:href="@{/tags/edit/{id}(id=${inst.id})}"><span>Editar</span></a></button>
+        <button class="custom-btn btn-33"><a th:href="@{/tags/delete/{id}(id=${inst.id})}"><span>Apagar</span></a></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  </body>
+</html>

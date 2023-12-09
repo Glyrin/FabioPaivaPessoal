@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta charset="UTF-8">
+      <title>Listar</title>
+      <link th:href="@{/css/listarDados.css}" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+      <h1>Dados de Autores</h1>
+      <div th:if="${!listaAutores.isEmpty()}" class="container">
+          <table>
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Nome</th>
+                      <th>Ativo</th>
+                      <th>Acções</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="inst: ${listaAutores}">
+                      <td th:text="${inst.id}" style="text-align: center"></td>
+                      <td th:text="${inst.nome}+' '+${inst.apelido}"></td>
+                      <td style="text-align: center"><input type="checkbox" th:checked="${inst.ativo}" disabled></td>
+                      <td style="text-align: center">
+                          <button class="custom-btn btn-31"><span><a th:href="@{/autores/view/{id}(id=${inst.id})}">Ver</a></span></button>
+                          <button class="custom-btn btn-32"><span><a th:href="@{/autores/edit/{id}(id=${inst.id})}">Editar</a></span></button>
+                          <button class="custom-btn btn-33"><span><a th:href="@{/autores/delete/{id}(id=${inst.id})}">Apagar</a></span></button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div th:unless="${!listaAutores.isEmpty()}">
+          <h2>Não existem dados a apresentar</h2>
+      </div>
+      <div class="voltar">
+          <button class="custom-btn btn-34"><a href="/"><span>Voltar</span></a></button>
+      </div>
+  </body>
+</html>

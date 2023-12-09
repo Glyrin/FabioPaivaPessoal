@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Turma</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/AccordionFilters.css}" rel="stylesheet">
+        <script th:src="@{/JS/AccordionFilters.js}"></script>
+        <link th:href="@{/CSS/Lista.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}"></div>
+
+        <div th:class="conteudo">
+        <span>
+            <div th:if="${!listaAlunos.isEmpty()}" class="formulario">
+                <h1>Editar Turmas dos Alunos</h1>
+                <div th:if="${gravou}">
+                    <span th:text="${gravou}" class="certo"></span>
+                </div>
+
+                <form th:action="@{/alunosTurmas/update}" th:object="${listaAlunosAtualizada}" method="post">
+                    <table>
+                        <thead>
+                        <tr style="padding-bottom: 5px">
+                            <th style="width: 50px">ID</th>
+                            <th>Nome</th>
+                            <th style="width: 200px">Turma</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="inst,iterStat: ${listaAlunos}">
+                            <td style="text-align: center"><input type="text" th:value="${inst.id}" readonly name="idsAlunos" style="width: 50px"></td>
+                            <td th:text="${inst.nome}+' '+${inst.apelido}"></td>
+                            <td>
+                                <select name="idsTurmas" id="turma">
+                                    <option th:each="turma: ${listaTurmas}" th:value="${turma.id}" th:text="${turma.nome}" th:selected="${turma==inst.turma}"></option>
+                                </select><br>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div align="center"><br><br>
+                        <input type="submit" value="Enviar" th:class="botao"><br><br>
+                    </div>
+                </form>
+            </div>
+            <div th:unless="${!listaAlunos.isEmpty()}" class="formulario">
+                <h1>Editar Turmas dos Alunos</h1>
+                <h2>Não existem dados a apresentar</h2>
+            </div>
+        </span>
+
+        <span th:class="filtro">
+            <div style="width: 300px">
+                <h1>Filtrar por:</h1>
+                <div class="accordion-header" onclick="toggleAccordion(1)">Turma
+                    <div class="accordion-content" id="content1">
+                        <form th:action="@{/turmas/filterTurma}" method="get">
+                            <select name="turmaFiltro" id="turmaFiltro" class="filter-input" onclick="stopPropagation(event)">
+                                <option th:each="turma: ${listaTurmas}" th:value="${turma.id}" th:text="${turma.nome}"></option>
+                            </select>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div align="center">
+                    <button style="width: 160px"><a href="/alunosTurmas/edit">Limpar Filtros</a></button>
+                </div>
+            </div>
+        </span>
+        </div>
+
+        <div th:replace="~{fragments/Footer::footer}"></div>
+    </body>
+</html>

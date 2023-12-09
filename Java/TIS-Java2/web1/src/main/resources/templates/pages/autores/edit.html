@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Editar</title>
+        <link th:href="@{/css/editarDados.css}" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Editar Autor</h1>
+        <div th:if="${falhou}">
+            <span th:text="${falhou}" class="erro"></span>
+        </div>
+        <div role="form" class="wpcf7" id="wpcf7-f1203-p230-o1" lang="en-US" dir="ltr">
+            <div class="screen-reader-response"></div>
+            <form th:action="@{/autores/update/{id}(id=${autor.id})}" th:object="${autor}" method="post" class="wpcf7-form">
+                <input type="hidden" name="id" th:field="*{id}">
+                <div style="display: none;">
+                    <input type="hidden" name="_wpcf7" value="1203">
+                    <input type="hidden" name="_wpcf7_version" value="5.0.1">
+                    <input type="hidden" name="_wpcf7_locale" value="en_US">
+                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1203-p230-o1">
+                    <input type="hidden" name="_wpcf7_container_post" value="230">
+                </div>
+                <p><label for="nome">Nome (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-name">
+                        <input type="text" id="nome" th:field="*{nome}" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="erro"></span>
+                    </span></p>
+                <p><label for="apelido">Apelido (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-name">
+                        <input type="text" id="apelido" th:field="*{apelido}" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('apelido')}" th:errors="*{apelido}" class="erro"></span>
+                    </span></p>
+                <p><label for="idade">Idade (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-subject">
+                        <input type="number" step="1" size="40" class="wpcf7-form-control wpcf7-text" id="idade" th:field="*{idade}" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('idade')}" th:errors="*{idade}" class="erro"></span>
+                    </span></p>
+                <p><label for="pais">País (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-name">
+                        <input type="text" id="pais" th:field="*{pais}" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}" class="erro"></span>
+                    </span></p>
+                <p>
+                    <label for="genero">Género (Obrigatório)</label>
+                    <select name="genero" id="genero">
+                        <option th:each="genero: ${generos}" th:value="${genero}" th:text="${genero}" th:selected="${genero == autor.genero}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}" class="erro"></span>
+                </p>
+                <p><label for="ativo">Ativo</label>
+                <div class="switch">
+                    <input type="checkbox" id="ativo" th:field="*{ativo}">
+                    <label>
+                        </span>
+                        <div></div>
+                    </label>
+                </div>
+                </p>
+                <p><label for="email">Email (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-name">
+                        <input type="text" id="email" th:field="*{autorDetalhes.email}" placeholder="Insira o email do autor" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('autorDetalhes.email')}" th:errors="*{autorDetalhes.email}" class="erro"></span>
+                    </span></p>
+                <p><label for="website">Website (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-name">
+                        <input type="text" id="website" th:field="*{autorDetalhes.website}" placeholder="Insira o website do autor" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('autorDetalhes.website')}" th:errors="*{autorDetalhes.website}" class="erro"></span>
+                    </span></p>
+                <div class="wpcf7-response-output wpcf7-display-none"></div>
+                <p><input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit">
+                    <span class="ajax-loader"></span></p>
+            </form>
+        </div>
+        <div class="voltar">
+            <button class="custom-btn btn-34"><a href="/autores/list"><span>Voltar</span></a></button>
+        </div>
+    </body>
+</html>

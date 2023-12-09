@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>LSD: Docente</title>
+    <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+    <link th:href="@{/CSS/AccordionFilters.css}" rel="stylesheet">
+    <script th:src="@{/JS/AccordionFilters.js}"></script>
+    <link th:href="@{/CSS/Lista.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <div th:replace="~{fragments/Header::header}"></div>
+
+    <div th:class="conteudo">
+        <span>
+            <div th:if="${!listaDocentes.isEmpty()}" class="formulario">
+                <h1>Lista de Docentes</h1>
+                <table>
+                    <thead>
+                    <tr style="padding-bottom: 5px">
+                        <th style="width: 50px">ID</th>
+                        <th>Nome</th>
+                        <th style="width: 50px">Ativo</th>
+                        <th style="width: 350px">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="inst: ${listaDocentes}">
+                        <td th:text="${inst.id}" style="text-align: center"></td>
+                        <td th:text="${inst.nome}+' '+${inst.apelido}"></td>
+                        <td style="text-align: center"><input type="checkbox" th:checked="${inst.ativo}" disabled></td>
+                        <td style="text-align: center">
+                            <button style="margin-right:0"><a th:href="@{/docentes/view/{id}(id=${inst.id})}"><span>Ver</span></a></button>
+                            <button style="margin-right:0"><a th:href="@{/docentes/edit/{id}(id=${inst.id})}"><span>Editar</span></a></button>
+                            <button style="margin-right:0"><a th:href="@{/docentes/delete/{id}(id=${inst.id})}"><span>Apagar</span></a></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div th:unless="${!listaDocentes.isEmpty()}" class="formulario">
+                <h1>Lista de Docentes</h1>
+                <h2>Não existem dados a apresentar</h2>
+            </div>
+        </span>
+
+        <span th:class="filtro">
+            <div style="width: 300px"><br>
+                <h1>Filtrar por:</h1>
+                <div class="accordion-header" onclick="toggleAccordion(1)">CC
+                    <div class="accordion-content" id="content1">
+                        <form th:action="@{/docentes/filterCc}" method="get">
+                            <input type="number" name="ccFiltro" class="filter-input" onclick="stopPropagation(event)" min="0" step="1" max="99999999"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(2)">NIF
+                    <div class="accordion-content" id="content2">
+                        <form th:action="@{/docentes/filterNif}" method="get">
+                            <input type="number" name="nifFiltro" class="filter-input" onclick="stopPropagation(event)" min="0" step="1" max="999999999"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(3)">NISS
+                    <div class="accordion-content" id="content3">
+                        <form th:action="@{/docentes/filterNiss}" method="get">
+                            <input type="number" name="nissFiltro" class="filter-input" onclick="stopPropagation(event)" min="0" step="1" max="99999999999"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(4)">Nome
+                    <div class="accordion-content" id="content4">
+                        <form th:action="@{/docentes/filterNome}" method="get">
+                            <input type="text" name="nomeFiltro" class="filter-input" onclick="stopPropagation(event)"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(5)">Tipo Contrato
+                    <div class="accordion-content" id="content5">
+                        <form th:action="@{/docentes/filterTipoContrato}" method="get">
+                            <select name="tipoContratoFiltro" id="tipoContratoFiltro" class="filter-input" onclick="stopPropagation(event)">
+                                <option th:each="tipoContrato: ${listaTiposContratos}" th:value="${tipoContrato}" th:text="${tipoContrato}"></option>
+                            </select><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(6)">Especializações
+                    <div class="accordion-content" id="content6">
+                        <form th:action="@{/docentes/filterEspecializacoes}" method="get">
+                            <select name="especializacoesFiltro" id="especializacoesFiltro" class="filter-input" onclick="stopPropagation(event)">
+                                <option th:each="especializacoes: ${listaEspecializacoes}" th:value="${especializacoes.id}" th:text="${especializacoes.nome}"></option>
+                            </select><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(7)">Ativo
+                    <div class="accordion-content" id="content7">
+                        <form th:action="@{/docentes/filterAtivo}" method="get" id="filtroForm">
+                            <input type="checkbox" name="ativoFiltro" id="ativoFiltro" class="filter-input" onclick="stopPropagation(event)">
+                            <input type="hidden" name="ativoFiltro" value="false"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div><br>
+                <div align="center">
+                    <button style="width: 160px"><a href="/docentes/list">Limpar Filtros</a></button><br>
+                </div>
+           </div>
+              <div th:class="espaco"></div><br>
+        </span>
+    </div>
+
+    <div th:replace="~{fragments/Footer::footer}"></div>
+</body>
+</html>

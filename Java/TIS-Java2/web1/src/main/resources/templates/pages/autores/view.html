@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta charset="UTF-8">
+      <title>Ver</title>
+      <link th:href="@{/css/listarDados.css}" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+  <h1>Ver Autor</h1>
+  <div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th colspan="2">Nome</th>
+      <th>Idade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td th:text="${inst.id}" style="text-align: center"></td>
+      <td colspan="2" th:text="${inst.nome}+' '+${inst.apelido}" style="text-align: center"></td>
+      <td th:text="${inst.idade}" style="text-align: center"></td>
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+      <th>País</th>
+      <th colspan="2">Género</th>
+      <th>Ativo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td th:text="${inst.pais}" style="text-align: center"></td>
+      <td colspan="2" th:text="${inst.genero}" style="text-align: center"></td>
+      <td style="text-align: center"><input type="checkbox" th:checked="${inst.ativo}" disabled></td>
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+      <th colspan="2">Email</th>
+      <th colspan="2">Website</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td colspan="2" th:text="${inst.autorDetalhes.email}" style="text-align: center"></td>
+      <td colspan="2" th:text="${inst.autorDetalhes.website}" style="text-align: center"></td>
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+      <th colspan="4">Acções</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td colspan="4" style="text-align: center">
+        <button class="custom-btn btn-31"><a href="/autores/list"><span>Voltar</span></a></button>
+        <button class="custom-btn btn-32"><span><a th:href="@{/autores/edit/{id}(id=${inst.id})}">Editar</a></span></button>
+        <button class="custom-btn btn-33"><span><a th:href="@{/autores/delete/{id}(id=${inst.id})}">Apagar</a></span></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Turma</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Formulario.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Formulario2.css}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}" th:class="corpo"></div>
+
+        <div class="conteudo">
+            <div th:class="formulario">
+                <h1> Nova Turma </h1>
+                <h2>* Campos Obrigatórios</h2><br><br>
+                <form th:action="@{/turmas/save}" th:object="${turma}" method="post">
+                    <table classe="table">
+                        <tr>
+                            <td>
+                                <label for="nome"><h3>Nome *</h3></label>
+                                <input type="text" id="nome" th:field="*{nome}" placeholder="Insira o nome"><br>
+                                <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="erro"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label><h3>Disciplinas</h3></label>
+                                <div th:each="inst:${listaDisciplinas}">
+                                    <span>
+                                        <input type="checkbox" th:field="*{disciplinas}" th:value="${inst.id}" th:class="checkbox2">
+                                        <label th:text="${inst.nome}"></label><br>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div align="center"><br><br>
+                        <input type="submit" value="Enviar" th:class="botao"><br><br>
+                    </div>
+                </form>
+            </div>
+            <div th:class="espaco"></div>
+        </div>
+        <div th:replace="~{fragments/Footer::footer}"></div>
+    </body>
+</html>

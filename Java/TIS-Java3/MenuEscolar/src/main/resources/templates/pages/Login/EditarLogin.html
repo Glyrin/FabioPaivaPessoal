@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>LSD: Editar Login </title>
+  <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+  <link th:href="@{/CSS/Formulario.css}" rel="stylesheet">
+</head>
+<body>
+  <div th:replace="~{fragments/Header::header}" th:class="corpo"></div>
+
+  <div class="conteudo">
+    <div th:class="formulario">
+      <h1>Editar Login</h1>
+      <div th:if="${falha}">
+        <span th:text="${falha}" class="erro"></span>
+      </div>
+      <div th:if="${sucesso}">
+        <span th:text="${sucesso}" class="certo"></span>
+      </div>
+
+      <form th:action="@{/login/update/{id}(id=${login.id})}" th:object="${login}" method="post">
+        <table class="table">
+          <tr>
+            <td>
+              <label for="username"><h3>Username: </h3></label>
+              <input type="text" id="username" th:field="*{username}" readonly>
+            </td>
+            <td>
+              <label for="password"><h3>Password: </h3></label>
+              <input type="password" id="password" th:field="*{password}"><br>
+              <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="erro"></span>
+            </td>
+          </tr>
+        </table>
+        <input type="hidden" name="id" th:field="*{id}">
+        <div align="center"><br><br>
+          <input type="submit" value="Alterar password" th:class="botao" style="width: 160px">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div th:replace="~{fragments/Footer::footer}"></div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Não Docente</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Ver.css}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}"></div>
+
+        <div class="conteudo">
+        <div th:class="formulario">
+            <h1>Ver Não Docente</h1>
+            <table align="center">
+                <tr>
+                    <td style="width: 500px;font-weight:bold">ID:</td>
+                    <td th:text="${inst.id}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Username:</td>
+                    <td th:text="${inst.utilizador.username}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Nome:</td>
+                    <td th:text="${inst.nome}+' '+${inst.apelido}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">CC:</td>
+                    <td th:text="${inst.cc}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Data de Nascimento:</td>
+                    <td th:text="${#temporals.format(inst.dataNascimento, 'dd/MM/yyyy')}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Idade:</td>
+                    <td th:text="${idade}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Espécie:</td>
+                    <td th:text="${inst.especie}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Sexo:</td>
+                    <td th:text="${inst.sexo}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Telefone:</td>
+                    <td th:text="${inst.telefone}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Email:</td>
+                    <td th:text="${inst.email}"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="font-weight: bold">Morada:</td>
+                    <td th:text="${inst.morada}"></td>
+                </tr>
+                <tr>
+                    <td th:text="${inst.codPostal}+' '+${inst.localidade}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">NIF:</td>
+                    <td th:text="${inst.nif}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">NISS:</td>
+                    <td th:text="${inst.niss}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">IBAN:</td>
+                    <td th:text="${inst.iban}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Tipo de contrato:</td>
+                    <td th:text="${inst.tipoContrato}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Função:</td>
+                    <td th:text="${inst.funcoes}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Ativo:</td>
+                    <td><input type="checkbox" th:checked="${inst.ativo}" disabled></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Detalhes:</td>
+                    <td><textarea cols="40" rows="10" th:text="${inst.detalhes}" disabled></textarea></td>
+                </tr>
+            </table>
+            <div align="center"><br><br>
+                <button><a th:href="@{/naodocentes/edit/{id}(id=${inst.id})}"><span>Editar</span></a></button>
+                <button><a th:href="@{/naodocentes/delete/{id}(id=${inst.id})}"><span>Apagar</span></a></button>
+                <button><a th:href="@{/naodocentes/list}"><span>Voltar</span></a></button>
+            </div>
+        </div>
+            <div th:class="espaco"></div>
+            <div th:replace="~{fragments/Footer::footer}"></div>
+        </div>
+    </body>
+</html>

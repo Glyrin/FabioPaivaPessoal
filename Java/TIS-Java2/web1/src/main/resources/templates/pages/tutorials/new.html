@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inserir</title>
+        <link th:href="@{/css/inserirDados.css}" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Inserir Tutorial</h1>
+        <div th:if="${sucesso}">
+            <span th:text="${sucesso}" class="erro"></span>
+        </div>
+        <div role="form" class="wpcf7" id="wpcf7-f1203-p230-o1" lang="en-US" dir="ltr">
+            <div class="screen-reader-response"></div>
+            <form th:action="@{/tutorials/save}" th:object="${tutorial}" method="post" class="wpcf7-form">
+                <div style="display: none;">
+                    <input type="hidden" name="_wpcf7" value="1203">
+                    <input type="hidden" name="_wpcf7_version" value="5.0.1">
+                    <input type="hidden" name="_wpcf7_locale" value="en_US">
+                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1203-p230-o1">
+                    <input type="hidden" name="_wpcf7_container_post" value="230">
+                </div>
+                <p><label for="title">Título (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-name">
+                        <input type="text" id="title" th:field="*{title}" placeholder="Insira o título do tutorial" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="erro"></span>
+                    </span></p>
+                <p><label for="description">Descrição (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-message">
+                        <textarea type="text" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" id="description" th:field="*{description}" placeholder="Insira a descrição do tutorial" aria-invalid="false"></textarea>
+                        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="erro"></span>
+                    </span></p>
+                <p><label for="price">Preço (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-email">
+                        <input type="number" step=".01" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" id="price" th:field="*{price}" aria-required="true" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="erro"></span>
+                    </span></p>
+                <p><label for="level">Nível (Obrigatório)</label>
+                    <span class="wpcf7-form-control-wrap your-subject">
+                        <input type="number" step="1" size="40" class="wpcf7-form-control wpcf7-text" id="level" th:field="*{level}" aria-invalid="false">
+                        <span th:if="${#fields.hasErrors('level')}" th:errors="*{level}" class="erro"></span>
+                    </span></p>
+                <p>
+                    <label>Autor (Obrigatório)</label>
+                    <select th:field="*{autor.id}">
+                        <option th:each="inst: ${autores}" th:value="${inst.id}" th:text="${inst.nome+' '+inst.apelido}"></option>
+                    </select>
+                </p>
+                <p>
+                    <label>Tags (para multiplos pressione ctrl)</label>
+                    <select th:field="*{tags}" multiple="multiple">
+                        <option th:each="inst: ${tags}" th:field="*{tags}" th:value="${inst.id}" th:text="${inst.nome}"></option>
+                    </select>
+
+
+                    <!--
+                        <div th:each="tag:${tags}">
+                            <div>
+                                <input type="checkbox" th:field="*{tags}" th:value="${tag.id}">
+                                <label th:text="${tag.nome}"></label>
+                            </div>
+                        </div>
+                    -->
+                    </p>
+                    <p><label for="published">Publicado</label>
+                        <div class="switch">
+                            <input type="checkbox" id="published" th:field="*{published}">
+                            <label>
+                                <div></div>
+                            </label>
+                        </div>
+                            </p>
+                    <div class="wpcf7-response-output wpcf7-display-none"></div>
+                    <p><input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit">
+                        <span class="ajax-loader"></span></p>
+                </form>
+            </div>
+            <div class="voltar">
+                <button class="custom-btn btn-34"><a href="/"><span>Voltar</span></a></button>
+            </div>
+        </body>
+    </html>

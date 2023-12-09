@@ -1,0 +1,15 @@
+.accordion-header {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+  }
+.accordion-content {
+display: none;
+border: none;
+padding: 10px;
+margin: 5px;
+}
+.filter-input {
+ width: 100%;
+}

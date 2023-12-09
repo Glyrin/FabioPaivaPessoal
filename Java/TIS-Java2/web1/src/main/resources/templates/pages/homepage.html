@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+        <link th:href="@{/css/homepage.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="~{fragments/header::header}"></div>
+        <h1>Entidades</h1>
+        <div class="container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Tutoriais</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <span class="centrar">
+                            <button class="custom-btn btn-31"><a href="/tutorials/new"><span>Inserir</span></a></button><br>
+                            <button class="custom-btn btn-32"><a href="/tutorials/list"><span>Listar</span></a></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Autores</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <span class="centrar">
+                            <button class="custom-btn btn-31"><a href="/autores/new"><span>Inserir</span></a></button><br>
+                            <button class="custom-btn btn-32"><a href="/autores/list"><span>Listar</span></a></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Tags</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <span class="centrar">
+                            <button class="custom-btn btn-31"><a href="/tags/new"><span>Inserir</span></a></button><br>
+                            <button class="custom-btn btn-32"><a href="/tags/list"><span>Listar</span></a></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

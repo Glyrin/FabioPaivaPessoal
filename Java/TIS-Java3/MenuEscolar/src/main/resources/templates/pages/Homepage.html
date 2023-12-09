@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lumos Spectros Divinus</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Homepage.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}" th:class="corpo"></div>
+
+        <div class="conteudo2">
+            <div class="video">
+                <video autoplay loop muted>
+                    <source src='Imagens/videoCaveira.mp4' type="video/mp4">
+                </video>
+            </div>
+           <div class="sobre">
+                <table>
+                    <tr>
+                        <td>
+                            <h4>
+                                A nossa escola é um refúgio mágico singular e enigmático,<br>
+                                onde a aprendizagem transcende a imaginação.<br>
+                                A nossa eleção de alunos é única, reservando lugares para<br>
+                                jovens talentosos de todas as espécies mágicas!<br><br>
+                                Não importa a origem, neste cenário de magia e mistério<br>
+                                todos são bem-vindos a explorar o mundo das artes arcanas<br>
+                                que se entrelaçam com a sabedoria ancestral.<br><br>
+                                Venha desvendar segredos na Lumos Spectrus Divinus…</h4>
+                        </td>
+                        <td>
+                            <div><img src='Imagens/hogwash.png' class="torre"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        <div class="parcerias">
+                <h3 style="text-align:center"> Parcerias </h3><br><br>
+
+                 <div style="text-align:center">
+                     <img class="imagens" src='Imagens/hersheylaranja.jpg' type="image">
+                     <span class="spar"></span>
+                     <img class="imagens2" src='Imagens/harryescuro.jpg' type="image">
+                     <img height="175px"  src='Imagens/pumpkinjack.png' type="image">
+                     <img height="175 px" style="padding-right:20px" src='Imagens/upslogo.png' type="image">
+                     <img height="175px"  src='Imagens/starbucks.png' type="image">
+                 </div>
+        </div>
+        <div th:class="espaco"></div>
+        <div th:class="espaco"></div>
+
+        <div class="contactos"><br>
+            <h5> Contactos </h5>
+            <span>
+                <h5>
+                Fim da Rua do Teixeira,<br>
+                Montalegre, Portugal<br><br>
+                info@lsd.pt<br>
+                259 529 952
+                </h5>
+            </span>
+            <img src='Imagens/SocialMedia.png' class="media">
+            <img src='Imagens/ponte.webp' class="ponte">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2505.2147181922574!2d-8.021909447128282!3d41.69420415888719!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd25279edb84d0df%3A0x1cd106812b9a8448!2sPonte%20da%20Misarela!5e0!3m2!1spt-PT!2spt!4v1695630431379!5m2!1spt-PT!2spt" width="266" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+        </div>
+        </div>
+        <div th:replace="~{fragments/Footer::footer}"></div>
+    </body>
+</html>

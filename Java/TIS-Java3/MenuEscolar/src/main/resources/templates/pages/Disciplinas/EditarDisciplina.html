@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Disciplina</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Ver.css}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}"></div>
+
+        <div class="conteudo">
+            <div th:class="formulario">
+            <h1>Editar Disciplina</h1>
+
+            <div th:if="${falha}">
+                <span th:text="${falha}" class="erro"></span>
+            </div>
+
+            <form th:action="@{/disciplina/update/{id}(id=${disciplina.id})}" th:object="${disciplina}" method="post">
+                <input type="hidden" name="id" th:field="*{id}">
+            <table>
+                <tr>
+                    <td>
+                    <label for="nome"><h3>Nome *</h3></label><br>
+                    <input type="text" id="nome" th:field="*{nome}"><br>
+                    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="erro"></span><br>
+                    </td>
+                </tr>
+            </table>
+                <div align="center"><br><br>
+                    <input type="submit" value="Enviar" th:class="botao">
+                </div>
+            </form>
+                <div>
+                    <button class="direita"><a th:href="@{/disciplina/list}"><span>Cancelar</span></a></button><br><br>
+                </div>
+            </div>
+        </div>
+        <div th:class="espaco"></div>
+        <div th:replace="~{fragments/Footer::footer}"></div>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Aluno</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/AccordionFilters.css}" rel="stylesheet">
+        <script th:src="@{/JS/AccordionFilters.js}"></script>
+        <link th:href="@{/CSS/Lista.css}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}"></div>
+
+        <div th:class="conteudo">
+        <span>
+            <div th:if="${!listaAlunos.isEmpty()}" class="formulario">
+                <h1>Lista de Alunos</h1>
+                <table>
+                    <thead>
+                    <tr style="padding-bottom: 5px">
+                        <th style="width: 50px">ID</th>
+                        <th>Nome</th>
+                        <th style="width: 50px">Ativo</th>
+                        <th style="width: 350px">Acções</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="inst: ${listaAlunos}">
+                        <td th:text="${inst.id}" style="text-align: center"></td>
+                        <td th:text="${inst.nome}+' '+${inst.apelido}"></td>
+                        <td style="text-align: center"><input type="checkbox" th:checked="${inst.ativo}" disabled></td>
+                        <td style="text-align: center">
+                            <button style="margin-right:0"><a th:href="@{/alunos/view/{id}(id=${inst.id})}"><span>Ver</span></a></button>
+                            <button style="margin-right:0"><a th:href="@{/alunos/edit/{id}(id=${inst.id})}"><span>Editar</span></a></button>
+                            <button style="margin-right:0"><a th:href="@{/alunos/delete/{id}(id=${inst.id})}"><span>Apagar</span></a></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div th:unless="${!listaAlunos.isEmpty()}" class="formulario">
+                <h1>Lista de Alunos</h1>
+                <h2>Não existem dados a apresentar</h2>
+            </div>
+        </span>
+
+        <span th:class="filtro">
+            <div style="width: 300px"><br>
+                <h1>Filtrar por:</h1>
+                <div class="accordion-header" onclick="toggleAccordion(1)">CC
+                    <div class="accordion-content" id="content1">
+                        <form th:action="@{/alunos/filterCc}" method="get">
+                            <input type="number" name="ccFiltro" class="filter-input" onclick="stopPropagation(event)" min="0" step="1" max="99999999"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(2)">Nome
+                    <div class="accordion-content" id="content2">
+                        <form th:action="@{/alunos/filterNome}" method="get">
+                            <input type="text" name="nomeFiltro" class="filter-input" onclick="stopPropagation(event)"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(3)">Casa
+                    <div class="accordion-content" id="content3">
+                        <form th:action="@{/alunos/filterCasa}" method="get">
+                            <select name="casaFiltro" id="casaFiltro" class="filter-input" onclick="stopPropagation(event)">
+                                <option th:each="casa: ${listaCasas}" th:value="${casa}" th:text="${casa}"></option>
+                            </select><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(4)">Turma
+                    <div class="accordion-content" id="content4">
+                        <form th:action="@{/alunos/filterTurma}" method="get">
+                            <select name="turmaFiltro" id="turmaFiltro" class="filter-input" onclick="stopPropagation(event)">
+                                <option th:each="turma: ${listaTurmas}" th:value="${turma.id}" th:text="${turma.nome}"></option>
+                            </select><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-header" onclick="toggleAccordion(5)">Ativo
+                    <div class="accordion-content" id="content5">
+                        <form th:action="@{/alunos/filterAtivo}" method="get" id="filtroForm">
+                            <input type="checkbox" name="ativoFiltro" id="ativoFiltro" class="filter-input" onclick="stopPropagation(event)">
+                            <input type="hidden" name="ativoFiltro" value="false"><br><br>
+                            <button type="submit" class="filter-input" onclick="stopPropagation(event)">Pesquisar</button>
+                        </form>
+                    </div>
+                </div><br>
+                <div align="center">
+                    <button style="width: 160px"><a href="/alunos/list">Limpar Filtros</a></button><br>
+                </div>
+            </div>
+            <div th:class="espaco"></div><br>
+        </span>
+        </div>
+            <div th:replace="~{fragments/Footer::footer}"></div>
+        </body>
+    </html>

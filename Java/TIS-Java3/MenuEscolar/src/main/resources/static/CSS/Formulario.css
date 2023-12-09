@@ -1,0 +1,108 @@
+.formulario{
+    width: 80%;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    color:white;
+    border-radius:5px;
+    box-shadow: 0px 0px 5px 0px rgba white;
+    padding:30px;
+    text-padding:15px;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+h2, h3 {
+    margin: 0;
+}
+input{
+    width: 250px;
+}
+select{
+    width: 255px;
+}
+
+.espaco{
+    height: 40px;
+}
+
+/* Botão enviar*/
+.botao {
+    font-family: 'Gabriela', serif;
+    font-size: 15px;
+    padding: 5px 10px;
+    width: 110px;
+    height: 30px;
+    border-radius: 6px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #8f7238;
+    color: white;
+    text-decoration: none;
+}
+
+.botao a {
+    text-decoration: none;
+    color: white;
+}
+
+.botao a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+/* checkbox */
+input[type="checkbox"] {
+    background-color: #F44336;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+    position: relative;
+    top: -23px;
+    cursor: auto;
+    margin-left: 70px;
+    letter-spacing: 1px;
+}
+input[type="checkbox"]::before {
+    content: '\f00d';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 1000;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4CAF50;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 1000;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Turma</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Ver.css}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}"></div>
+
+        <div class="conteudo">
+            <div th:class="formulario">
+            <h1>Ver Turma</h1>
+            <table align="center">
+                <tr>
+                    <td style="font-weight:bold">ID:</td>
+                    <td th:text="${inst.id}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Nome:</td>
+                    <td th:text="${inst.nome}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Disciplinas:</td>
+                    <td>
+                        <span th:each="disciplina:${listaDisciplinas}">
+                            <label th:text="${disciplina.nome}"></label><br>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Alunos:</td>
+                    <td>
+                        <span th:each="aluno:${listaAlunos}">
+                            <label th:text="${aluno.nome}+' '+${aluno.apelido}"></label><br>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+                <div align="center"><br><br>
+                    <button><a th:href="@{/turmas/edit/{id}(id=${inst.id})}"><span>Editar</span></a></button>
+                    <button><a th:href="@{/turmas/delete/{id}(id=${inst.id})}"><span>Apagar</span></a></button>
+                    <button><a th:href="@{/turmas/list}"><span>Voltar</span></a></button>
+                </div>
+            </div>
+            <div th:class="espaco"></div>
+            <div th:replace="~{fragments/Footer::footer}"></div>
+        </div>
+    </body>
+</html>

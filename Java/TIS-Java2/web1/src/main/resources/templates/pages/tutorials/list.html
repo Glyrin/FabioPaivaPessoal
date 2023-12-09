@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta charset="UTF-8">
+      <title>Listar</title>
+      <link th:href="@{/css/listarDados.css}" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+      <h1>Dados de Tutoriais</h1>
+
+      <form th:action="@{/tutorials/search}" method="get">
+          <div class="container">
+          <table>
+              <thead>
+                <tr>
+                    <th colspan="2"><label>Pesquise por título:</label></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td><input type="text" name="keyword"></td>
+                    <td><button type="submit">Pesquisar</button></td>
+                </tr>
+              </tbody>
+          </table>
+          </div>
+      </form>
+
+      <div th:if="${!listaTutorials.isEmpty()}" class="container">
+          <table>
+              <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Publicado</th>
+                  <th>Acções</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="inst: ${listaTutorials}">
+                  <td th:text="${inst.id}" style="text-align: center"></td>
+                  <td th:text="${inst.title}"></td>
+                  <td style="text-align: center"><input type="checkbox" th:checked="${inst.published}" disabled></td>
+                  <td style="text-align: center">
+                      <button class="custom-btn btn-31"><a th:href="@{/tutorials/view/{id}(id=${inst.id})}"><span>Ver</span></a></button>
+                      <button class="custom-btn btn-32"><a th:href="@{/tutorials/edit/{id}(id=${inst.id})}"><span>Editar</span></a></button>
+                      <button class="custom-btn btn-33"><a th:href="@{/tutorials/delete/{id}(id=${inst.id})}"><span>Apagar</span></a></button>
+                  </td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
+      <div th:unless="${!listaTutorials.isEmpty()}">
+          <h2>Não existem dados a apresentar</h2>
+      </div>
+      <div class="voltar">
+          <button class="custom-btn btn-34"><a href="/"><span>Voltar</span></a></button>
+      </div>
+  </body>
+</html>

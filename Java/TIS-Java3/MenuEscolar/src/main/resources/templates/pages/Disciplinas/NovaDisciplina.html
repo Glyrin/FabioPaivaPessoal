@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>LSD: Disciplina</title>
+        <link th:href="@{/CSS/Header&Footer.css}" rel="stylesheet">
+        <link th:href="@{/CSS/Formulario.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="~{fragments/Header::header}" th:class="corpo"></div>
+
+        <div class="conteudo">
+            <div th:class="formulario">
+                <h1> Nova Disciplina </h1>
+                <h2>* Campos Obrigatórios</h2><br><br>
+                <form th:action="@{/disciplina/save}" th:object="${disciplina}" method="post">
+                    <table classe="table">
+                        <tr>
+                            <td>
+                                <label for="nome"><h3>Nome *</h3></label>
+                                <input type="text" id="nome" th:field="*{nome}" placeholder="Insira o nome"><br>
+                                <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="erro"></span><br>
+                            </td>
+                        </tr>
+                    </table>
+                    <div align="center"><br><br>
+                        <input type="submit" value="Enviar" th:class="botao"><br><br>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div th:replace="~{fragments/Footer::footer}"></div>
+    </body>
+</html>

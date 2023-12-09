@@ -1,0 +1,58 @@
+<nav th:fragment="header" xmlns:th="">
+  <div th:class="header1">
+    <span th:class="esquerda">
+     <!--Logo -->
+    </span>
+      Lumus Spectrus Divinus
+    <span th:class="direita">
+      <button><a href="/login">Login</a></button>
+    </span>
+  </div>
+
+  <div th:class="header2" align="center">
+    <div th:class="dropdown">
+      <button><a href="/">Home</a></button>
+    </div>
+
+    <div th:class="dropdown">
+      <button>Alunos</button>
+      <div th:class="dropdown-content">
+        <a href="/alunos/new">Inserir</a>
+        <a href="/alunos/list">Listar</a>
+      </div>
+    </div>
+
+    <div th:class="dropdown">
+      <button>Docentes</button>
+        <div th:class="dropdown-content">
+        <a href="/docentes/new">Inserir</a>
+        <a href="/docentes/list">Listar</a>
+        </div>
+    </div>
+
+    <div th:class="dropdown">
+      <button>Não Docentes</button>
+        <div th:class="dropdown-content">
+        <a href="/naodocentes/new">Inserir</a>
+        <a href="/naodocentes/list">Listar</a>
+        </div>
+    </div>
+
+    <div th:class="dropdown">
+      <button>Turmas</button>
+        <div th:class="dropdown-content">
+        <a href="/turmas/new">Inserir</a>
+        <a href="/turmas/list">Listar</a>
+        <a href="/alunosTurmas/edit">Editar Turmas</a>
+        </div>
+    </div>
+
+    <div th:class="dropdown">
+      <button>Disciplinas</button>
+        <div th:class="dropdown-content">
+        <a href="/disciplina/new">Inserir</a>
+        <a href="/disciplina/list">Listar</a>
+        </div>
+    </div>
+  </div>
+</nav>

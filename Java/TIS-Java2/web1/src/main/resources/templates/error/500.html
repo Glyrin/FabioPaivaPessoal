@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <title>Erro 500</title>
+    <link th:href="@{/css/erros.css}" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Internal Server Error - 500</h1>
+    <div class="container">
+      <p>Algo correu mal no servidor.<br>Tente novamente mais tarde ou entre em contacto com o administrador.</p>
+      <table>
+        <tr>
+          <td>Timestamp</td>
+          <td th:text="${timestamp}">Timestamp</td>
+        </tr>
+        <tr>
+          <td>Path</td>
+          <td th:text="${path}">Path</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td th:text="${status}">Status</td>
+        </tr>
+        <tr>
+          <td>Error</td>
+          <td th:text="${error}">Error</td>
+        </tr>
+        <tr>
+          <td>Message</td>
+          <td th:text="${message}">Message</td>
+        </tr>
+        <tr>
+          <td>Exception</td>
+          <td th:text="${exception}"/>
+        </tr>
+        <tr>
+          <td>Trace</td>
+          <td>
+            <pre th:text="${trace}" />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="voltar">
+      <button class="custom-btn btn-34"><a href="/"><span>Voltar</span></a></button>
+    </div>
+  </body>
+</html>
