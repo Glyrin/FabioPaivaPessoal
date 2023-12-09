@@ -1,0 +1,77 @@
+<html>
+    <head>
+            <title>Exercicio 25v2</title>
+        <style>
+            body{
+                background-color: rgb(202, 236, 202);
+            }
+            .c1{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                background-color: white;
+            }
+            .img{
+                display: block; margin-left: auto; margin-right: auto;
+            }
+            h1{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <div class="c1"><img class="img" src="https://bussolasocial.alentejo.pt/fileadmin/user_upload/6_Logo_IEFP_Horizontal.jpg" alt="Logo IEFP" width="800px"></div>
+        <br><br><br><br><br><br><br><br><br>
+        <h1>Formulário Incrição em Curso de Formação</h1>
+        <p align="center">Preencha os seguintes campos para fazer a sua inscrição.</p>
+        <form action="mailto:4800936@formacao.iefp.pt" method="post">
+        <table cellspacing="5" align="center">
+            <tr>
+                <td width="200px"><label for="">Nome</label></td>
+                <td colspan="3"><input type="text" id="nome" name="nome" required size="81"></td>
+            </tr>
+            <tr>
+                <td width="200px"><label for="">Data de Nascimento</label></td>
+                <td><input type="date" id="datanascimento" name="datanascimento"></td>
+                <td width="176px"><label for="">NºCartão do Cidadão</label></td>
+                <td><input type="text" id="cc" name="cc" required size="27" maxlength="14"></td>
+            </tr>
+            <tr>
+                <td width="200px"><label for="">Telemóvel</label></td>
+                <td><input type="number" id="Telefone" name="telefone" required size="27" maxlength="9"></td>
+                <td width="176px"><label for="">Email</label></td>
+                <td><input type="email" id="email" name="email" size="27"></td>
+            </tr>
+            <tr>
+                <td width="200px"><label for="">Morada</label></td>
+                <td colspan="3"><input type="text" id="morada" name="morada" size="81"></td>
+            </tr>
+            <tr>
+                <td width="200px"><label for="">Código Postal</label></td>
+                <td colspan="3"><input type="text" id="codigopostal" name="codigopostal" size="81"></td>
+            </tr>
+            <tr>
+                <td width="200px"><label for="">Escolaridade</label></td>
+                <td colspan="3"><input type="text" id="escolaridade" name="escolaridade" required size="81"></td>
+            </tr>
+            <tr>
+                <td width="200px"><label for="">Curso a que se candidata</label></td>
+                <td colspan="3"><input type="checkbox" name="curso1" id="curso1" value="TIS"><label for="curso1">Técnico de Informática e Sistemas</label><br>
+                    <input type="checkbox" name="curso1" id="curso2" value="TCS"><label for="curso2">Técnico de Cibersegurança</label><br>
+                    <input type="checkbox" name="curso1" id="curso3" value="TPR"><label for="curso3">Técnico de Programação</label><br>
+                    <input type="checkbox" name="curso1" id="curso4" value="TRD"><label for="curso4">Técnico de Redes</label>
+                </select></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td colspan="2" align="center"><input class="botao" type="reset" value="Cancelar"></td>
+                <td colspan="2" align="center"><input class="botao" type="submit" value="Increver"></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

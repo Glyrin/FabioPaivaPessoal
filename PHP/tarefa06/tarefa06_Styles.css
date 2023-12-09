@@ -1,0 +1,269 @@
+﻿/* TIPOS DE LETRAS
+            font-family: 'Pacifico', cursive;
+            font-family: 'Permanent Marker', cursive;
+            font-family: 'Patrick Hand', cursive;
+            */
+            @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap');
+            /* FUNDO */
+            body{
+                /* background: radial-gradient(rgb(0, 0, 0), rgb(5, 23, 56)); */
+                background-image: url("cogwheels-284526.jpg");
+                width: 100%;
+            }
+
+            /* BOTÕES MENU PRINCIPAL*/
+            button {
+                padding-left: 15px;
+                padding-right: 15px;
+                width: 200px;
+                height: 50px;
+                border-radius: 20px;
+                border: none;
+                background-color: rgb(241, 234, 215);
+                font-family: 'Permanent Marker', cursive;
+                text-align: center;
+                font-size: larger;
+                color: rgb(5, 23, 56);
+            }
+            a:link, a:visited, a:hover, a:active{
+                text-decoration: none;
+                color: rgb(5, 23, 56);
+            }
+            button:hover {
+                background-color: rgb(218, 215, 69);
+                color: rgb(5, 23, 56);
+            }
+            .dropdown {
+                display: inline-block;
+                position: relative;
+                }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                left: 20px;
+                width: 160px;
+                overflow: auto;
+                background-color: rgb(218, 215, 69);
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                font-family: 'Permanent Marker', cursive;
+            }
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            .dropdown-content a {
+                display: block;
+                color: rgb(5, 23, 56);
+                padding: 5px;
+                text-decoration: none;
+            }
+            .dropdown-content a:hover {
+                color: rgb(5, 23, 56);
+                background-color: rgb(241, 234, 215);
+            }
+            .espaco{
+                width: 800px;
+                height: 10px;
+            }
+            /* Texto*/
+            .nome{
+                border-radius: 10px;
+                padding: 5px;
+                background-color: rgba(21, 15, 73, 0.404);
+                width: 1000px;
+                height: 200px;
+                text-align: center;
+                color: rgb(241, 234, 215);
+                font-family: 'Pacifico', cursive;
+                font-size: 100px;
+            }
+            .foto{
+                border-radius: 10px;
+                padding: 5px;
+                background-color: rgba(21, 15, 73, 0.404);
+                width: 200px;
+                height: 200px;
+                position: relative;
+            }
+            .titulos{
+                border-radius: 10px;
+                padding: 5px;
+                background-color: rgba(21, 15, 73, 0.404);
+                width: 1000px;
+                height: 200px;
+                text-align: center;
+                color: rgb(241, 234, 215);
+                font-family: 'Pacifico', cursive;
+                font-size: 65px;
+            }
+            .titulos2{
+                border-radius: 10px;
+                padding: 5px;
+                background-color: rgba(21, 15, 73, 0.404);
+                width: 1000px;
+                height: 75px;
+                text-align: center;
+                color: rgb(241, 234, 215);
+                font-family: 'Pacifico', cursive;
+                font-size: 45px;
+            }
+            .enviar{
+                width: 200px;
+                height: 50px;
+                background-color: rgb(241, 234, 215);
+                color: rgb(5, 23, 56);
+                font-family: 'Permanent Marker', cursive;
+                text-align: center;
+                border-radius: 10px;
+                border: none;
+                font-size: 35px;
+            }
+            .subtitulos{
+                width: 1200px;
+                border-radius: 10px;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(21, 15, 73, 0.404);
+                color: rgb(241, 234, 215);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 30px;
+                margin: auto;
+            }
+            .centrarelemento{
+                position: absolute;
+                margin: auto;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+            .texto1{
+                border-radius: 10px;
+                width: 1200px;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(37, 13, 158, 0.603);
+                color: rgb(241, 234, 215);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 20px;
+            }
+            .texto2{
+                border-radius: 10px;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(37, 13, 158, 0.603);
+                color: rgb(241, 234, 215);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 20px;
+                width: 1180px;
+                max-height: 25%;
+                overflow: scroll;
+            }
+            .texto2::-webkit-scrollbar {
+                width: 0px;
+                background: transparent;
+            }
+            .texto3{
+                border-radius: 10px;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(37, 13, 158, 0.603);
+                color: rgb(241, 234, 215);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 20px;
+                width: 1180px;
+                margin: auto;
+            }
+            .texto4{
+                border-radius: 10px;
+                width: 1180px;
+                height: auto;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(241, 234, 215, 0.699);
+                color: rgb(5, 23, 56);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 20px;
+                margin: auto;
+            }
+            .texto5{
+                border-radius: 10px;
+                width: 1200px;
+                height: 350px;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(37, 13, 158, 0.603);
+                color: rgb(241, 234, 215);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 20px;
+                overflow: scroll;
+            }
+            .fundo{
+                border-radius: 10px;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(37, 13, 158, 0.603);
+                color: rgb(241, 234, 215);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 20px;
+                width: 1180px;
+                height: 675px;
+                margin: auto;
+                position: relative;
+                z-index: -1;
+            }
+            .titdis{
+                border-radius: 10px;
+                padding: 5px;
+                background-color: rgba(21, 15, 73, 0.404);
+                width: 1000px;
+                height: 200px;
+                text-align: center;
+                color: rgb(241, 234, 215);
+                font-family: 'Pacifico', cursive;
+                font-size: 50px;
+            }
+            .cod{
+                border-radius: 10px;
+                padding: 5px;
+                background-color: rgba(21, 15, 73, 0.404);
+                width: 200px;
+                height: 200px;
+                text-align: center;
+                line-height: 190px;
+                color: rgb(241, 234, 215);
+                font-family: 'Pacifico', cursive;
+                font-size: 50px;
+            }
+            .botao {
+                padding-left: 15px;
+                padding-right: 15px;
+                width: 200px;
+                height: 50px;
+                border-radius: 20px;
+                border: none;
+                background-color: rgb(241, 234, 215);
+                font-family: 'Permanent Marker', cursive;
+                text-align: center;
+                font-size: larger;
+                color: rgb(5, 23, 56);
+            }
+            .pesquisa{
+                border-radius: 10px;
+                width: 585px;
+                height: auto;
+                padding: 5px;
+                padding-left: 15px;
+                background-color: rgba(241, 234, 215, 0.699);
+                color: rgb(5, 23, 56);
+                font-weight: bolder;
+                font-family: 'Patrick Hand', cursive;
+                font-size: 20px;
+            }

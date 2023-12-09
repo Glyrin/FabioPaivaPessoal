@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifolio | Contactos</title>
+    <link rel="stylesheet" href="css\estilo.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <a href="index.html"><img src="img/logopp.svg" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="about.html">Curso</a></li>
+                    <li><a href="materias.php">Disciplinas</a></li>
+                    <li><a href="trabalhos.php">Trabalhos</a></li>
+                    <li class="current"><a href="contact.html">Contacto</a></li>
+                    <li><a href="admin.php">Administração</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- <div class="header-espaco"></div> -->
+    <section id="newsletter_con">
+        <div class="container">
+            <h1>Para entrar em contacto preencha o formulário abaixo:</h1>
+<!--             <form>
+                <input type="email" placeholder="Enter e-mail...">
+                <button type="submit" class="button">Enviar</button>
+            </form> -->
+        </div>
+    </section>
+    <section id="main">
+        <div class="container">
+            <section id="contacto" class="contacto">
+                <h2>Formulário</h2>
+                <p>Por favor selecione o assunto e digite sua mensagem...</p>
+                <form class="form" action="" method="post">
+                    <input type="text" name="nome" placeholder=" Nome Completo...">
+                    <input type="email" name="email" placeholder=" Endereço de e-mail...">
+                    <select name="assunto">
+                        <option selected>Selecione um assunto</option>
+                        <option value="suporte">Suporte</option>
+                        <option value="orçamento">Orçamento</option>
+                        <option value="outro">Outro assunto</option>
+                    </select>
+                    <textarea class="textarea1" name="mensagem" rows="10" placeholder=" Escreva aqui a sua mensagem..."></textarea>
+                    <button type="submit" class="button_send">ENVIAR</button>
+                </form>
+            </section>
+            <aside id="sidebar">
+                <div class="dark">
+                    <h3>Contactos</h3>
+                    <div>
+                        <p>&#9743; (+351)9322-94543</p>
+                    </div>
+                    <div>
+                        <p>&#9993; phcrepaldi@gmail.com</p>
+                    </div>
+                    <div>
+                        <p>&#10146; R. do Carmo 15, 
+                        Porto - 4050-064 - Portugal</p>
+                    </div>
+                </div>
+                <br>
+                <article id="main_col">
+                    <h3>Mapa</h3>
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.423576714805!2d-8.619125784441795!3d41.147107779287026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24651d6ee19633%3A0x44e66daa40d105c9!2sR.%20do%20Carmo%2015%2C%204050-064%20Porto!5e0!3m2!1spt-BR!2spt!4v1660047163919!5m2!1spt-BR!2spt" width="600" height="365" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </article>
+            </aside>
+        </div>
+    </section>
+    <footer class="footer">
+                 
+        <div class="container">
+            <div class="row">
+             <div id="logo_footer" class="footer-col">
+                 <a href="index.html"><img src="img/logopp.svg" alt="Logo"></a>
+             </div>
+                <div id="cols" class="footer-col">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="#">Informações</a></li>
+                        <li><a href="#">Informações</a></li>
+                        <li><a href="#">Informações</a></li>
+                    </ul>
+                </div>
+                <div id="cols" class="footer-col">
+                    <h4>Contactos</h4>
+                    <ul>
+                        <li><a href="contact.html">R. do Carmo 15, Porto</a></li>
+                        <li><a href="contact.html">9322-94543</a></li>
+                        <li><a href="contact.html">phcrepaldi@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div id="cols" class="footer-col">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                     <a href=""><img src="img/facebook.svg" alt="FACEBOOK"></a>
+                     <a href=""><img src="img/instagram.svg" alt="INSTAGRAM"></a>
+                     <a href=""><img src="img/twitter.svg" alt="TWITTER"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <p>PP Webdesign, Copyright &copy; 2023</p>
+        </div>  
+</footer>
+<!--<script src="script.js"></script>-->
+</body>
+</html>
