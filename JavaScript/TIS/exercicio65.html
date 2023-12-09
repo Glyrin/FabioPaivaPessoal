@@ -1,0 +1,141 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 65</title>
+            
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap');
+                input{
+                    text-align: right;
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input{
+                    width: 400px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(76, 150, 8, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+
+                }
+                h2{
+                    text-align: center;
+                    color: rgb(233, 236, 44);
+                    font-family: 'Pacifico', cursive;
+                    font-size: 50px;
+                }
+                body{
+                    background: radial-gradient(rgb(0, 0, 0), rgb(5, 56, 16));
+                }
+                button{
+                    width: 195px;
+                    height: 50px;
+                    border-radius: 55px;
+                    border: none;
+                    background-color: rgb(21, 35, 160);
+                    font-family: 'Pacifico', cursive;
+                    font-size: larger;
+                    color: rgb(233, 236, 44);
+                }
+                .saida1{
+                    width: 200px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(76, 150, 8, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+                }
+                td{
+                    text-align: center;
+                }
+                .saida{
+                    width: 400px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(76, 150, 8, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+                }
+                .texto{
+                    color: rgb(233, 236, 44);
+                    font-family: 'Permanent Marker', cursive;
+                    font-size: large;
+                }
+            </style>
+            <script>
+                function limpar(){
+                    document.getElementById("horas").value = "";
+                    document.getElementById("pontos").innerHTML = "";
+                    document.getElementById("valor").innerHTML = "";
+                    document.getElementById("mensalidade").innerHTML = "";
+                }
+                function calculo(){
+                    let horas = parseFloat(document.getElementById("horas").value);
+                    let p= pontos(horas);
+                    let v= p*0.05;
+                    let m= 0
+                    if(v<=30){
+                        m= 30-v;
+                    }
+                    document.getElementById("pontos").innerHTML = p;
+                    document.getElementById("valor").innerHTML = v+" €";
+                    document.getElementById("mensalidade").innerHTML = m+" €";
+                }
+                function pontos(horas){
+                    let po=0;
+                    if(horas<=10){
+                        po=horas*2
+                    }else if (horas<=20){
+                        po=20+(horas-10)*5
+                    }else{
+                        po=20+50+(horas-20)*10
+                    }
+                    return po;
+                }
+            </script>
+    </head>
+    <!--
+        Ginásio Verde:
+        Mensalidade: 30€
+        Cada hora de atividade por mês vale pontos:
+        - até 10h: 2 pontos por hora
+        - 10h a 20h: 5 pontos por hora
+        - mais de 20h: 10 pontos por hora
+        Cada ponto vale 0,05€ até pagaar o total da mensalidade.
+        Quanto ganhou?
+        Qual a mensalidade do próximo mês?
+    -->
+    <body>
+        <h2>Ginásio Verde</h2>
+        <div align="center">
+            <input type="number" id="horas" placeholder="Insira o nº de horas"> <br><br>
+            <button type="button" onclick="calculo()">Calcular</button>
+            <button type="button" onclick="limpar()">Limpar Campos</button> <br><br>
+            <table><tr>
+                <td>
+                    <span class="texto">Pontos ganhos</span> <br>
+                    <div class="saida1" id="pontos"></div> <br>
+                </td>
+                <td>
+                    <span class="texto">Valor ganho</span> <br>
+                    <div class="saida1" id="valor"></div> <br>
+                </td>
+            </tr></table>
+            <span class="texto">A sua próxima mensalidade é de:</span> <br>
+            <div class="saida" id="mensalidade"></div> <br>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+            <title>Exercicio 31</title>
+            <style>
+            input{
+                width: 50px;
+                text-align: right;
+            }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Principio da calculadora</h2>
+        <input type="number" id="n1">
+        +
+        <input type="number" id="n2">
+        =
+        <input type="number" id="res"><br><br>
+        <button type="button" onclick="soma()">Calcular</button>
+        <script>
+            function soma(){
+                let n1 = parseInt(document.getElementById("n1").value);
+                let n2 = parseInt(document.getElementById("n2").value);
+                let s = n1 + n2;
+                //alert(s);
+                document.getElementById("res").value=s;
+            }
+        </script>
+    </body>
+</html>

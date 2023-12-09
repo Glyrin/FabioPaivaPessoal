@@ -1,0 +1,59 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 54</title>
+            <script>
+                function calc(){
+                    let largura=parseFloat(document.getElementById("largura").value);
+                    let altura=parseFloat(document.getElementById("altura").value);
+                    let area = (largura*altura);
+                    let tinta = (area/2);
+                    area=area.toFixed(2)
+                    tinta=tinta.toFixed(2)
+                    let l5= parseInt(tinta/5);
+                    let l1= (tinta%5); // % vai buscar a parte decimal de uma divisão
+                    if(l1==0){
+                        l1=0
+                    }else{
+                        l1=Math.ceil(tinta%5) // Math.ceil() arredonda para o inteiro acima
+                        //Math.floor() arredonda para o inteiro abaixo
+                    }
+                    document.getElementById("area").value=area + " metros quadrados"
+                    document.getElementById("tinta").value=tinta + " litros de tinta"
+                    document.getElementById("l5").value=l5;
+                    document.getElementById("l1").value=l1;
+                }
+                function limpa(){
+                    document.getElementById("largura").value = "";
+                    document.getElementById("altura").value = "";
+                    document.getElementById("area").value = "";
+                    document.getElementById("tinta").value = "";
+                    document.getElementById("l5").value = "";
+                    document.getElementById("l1").value = "";
+                }
+            </script>
+            <style>
+                input{
+                    text-align: right;
+                }
+            </style>
+    </head>
+    <!--
+        Faça um algoritmo que leia a largura e altura de uma parede,
+        calcule e mostre a área a ser pintada e a quantidade de tinta
+        necessária para o serviço, sabendo que cada litro de tinta
+        pinta uma área de 2 metros quadrados.
+    -->
+    <body>
+        <h2>Tintas & Ca.</h2>
+
+        Largura <input type="text" id="largura"> <br><br>
+        Altura <input type="text" id="altura"> <br><br>
+        <button type="button" onclick="calc()">Calcular</button>
+        <button type="button" onclick="limpa()">Limpar campos</button> <br><br>
+        Área a ser pintada <input type="text" id="area" readonly> <br><br>
+        Litros de tinta necessários <input type="text" id="tinta" readonly> litros de tinta <br><br>
+        Nº latas de 5L <input type="text" id="l5" readonly>  <br><br>
+        Nº latar de 1L <input type="text" id="l1" readonly>
+    </body>
+</html>

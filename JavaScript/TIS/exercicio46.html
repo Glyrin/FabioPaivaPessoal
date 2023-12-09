@@ -1,0 +1,39 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 46</title>
+            <script>
+                function executa(){
+                    let idade = parseInt(document.getElementById("idade").value);
+                    let classe = "";
+                    if (idade<0){
+                        classe="Lucas"
+                    }else if (idade<=3){
+                        classe="Bebé";
+                    }else if(idade<=10){
+                        classe="Criança";
+                    }else if(idade<=18){
+                        classe="Adolescente";
+                    }else if(idade<=35){
+                        classe="Jovem";
+                    }else if(idade<=70){
+                        classe="Adulto";
+                    }else if(idade<=150){
+                        classe="Idoso";
+                    }else{
+                        classe="Idade inválida!";
+                    }
+                    document.getElementById("classe").value=classe
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Classe etária</h2>
+        <input type="number" id="idade"><br><br>
+        <button type="button" onclick="executa()">Classe</button><br><br>
+        <input type="text" id="classe" readonly><br><br>
+    </body>
+</html>

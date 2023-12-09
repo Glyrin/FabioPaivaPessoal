@@ -1,0 +1,79 @@
+<html>
+    <head>
+            <title>Exercicio 48v3</title>
+            <style>
+            input{
+                width: 50px;
+                text-align: right;
+            }
+            </style>
+            <script>
+                let op="";
+                function soma(a,b){
+                    let s= a+b;
+                    return s;
+                }
+                function subtrai(a,b){
+                    let s= a-b;
+                    return s;
+                }
+                function multiplica(a,b){
+                    let s= a*b;
+                    return s;
+                }
+                function divide(a,b){
+                    let s="";
+                    if(b==0){s="erro";}else{
+                    let n= a/b;
+                    s=n.toString();}
+                    return s;
+                }
+                function opera(val){
+                    op=val;
+                }
+                function conta(){
+                    let n1 = document.getElementById("n1").value;
+                    let n2 = document.getElementById("n2").value;
+                    let s = 0;
+                    if ((op=="") || (n1=="") || (n2=="")){
+                        alert("Falta aí qualquer coisa.")
+                    }else{
+                        n1=parseInt(n1);
+                        n2=parseInt(n2);
+                        switch(op){
+                            case "+": s=soma(n1,n2); break;
+                            case "-": s=subtrai(n1,n2); break;
+                            case "x": s=multiplica(n1,n2); break;
+                            case ":": s=divide(n1,n2); break;
+                            default: s=0;
+                        }
+                        document.getElementById("res").value=s;
+                        op="";
+                    }
+                }
+                function limpa(){
+                    document.getElementById("n1").value="";
+                    document.getElementById("n2").value="";
+                    document.getElementById("res").value="";
+                    op="";
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Principio da calculadora</h2>
+        <input type="number" id="n1">
+        <input type="number" id="n2">
+        =
+        <input type="text" id="res" readonly><br><br>
+        <button type="button" onclick="opera('+')">+</button>
+        <button type="button" onclick="opera('-')">-</button>
+        <button type="button" onclick="opera('x')">x</button>
+        <button type="button" onclick="opera(':')">:</button>
+        <button type="button" onclick="conta()">Calcular</button>
+        <button type="button" onclick="limpa()">Clear</button>
+        
+    </body>
+</html>

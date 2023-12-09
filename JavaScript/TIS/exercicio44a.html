@@ -1,0 +1,28 @@
+<html>
+    <head>
+            <title>Exercicio 44a</title>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Ciclos</h2>
+        Nome do aluno: <input type="text" id="nome"><br><br>
+        <button type="button" onclick="executa()">Adicionar</button>
+        <p id="n"></p>
+        <p id="n2"></p>
+        <script>
+            function executa(){
+                let lista="";
+                let nome=document.getElementById("nome").value;
+                let i=0;
+                for (let n in nome){
+                    i=parseInt(n)+1;
+                    lista=lista+i+" - "+nome[n]+"<br>";
+                    document.getElementById("n").innerHTML = lista;
+                }
+                document.getElementById("n2").innerHTML = nome[1];
+            }
+        </script>
+    </body>
+</html>

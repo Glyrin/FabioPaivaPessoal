@@ -1,0 +1,44 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 52</title>
+            <script>
+                function calc(){
+                    let metros=parseFloat(document.getElementById("metros").value);
+                    document.getElementById("dm").value = metros*10;
+                    document.getElementById("cm").value = metros*100;
+                    document.getElementById("mm").value = metros*1000;
+                    document.getElementById("dam").value = metros/10;
+                    document.getElementById("hm").value = metros/100;
+                    document.getElementById("km").value = metros/1000;
+                }
+                function limpa(){
+                    document.getElementById("dm").value = "";
+                    document.getElementById("cm").value = "";
+                    document.getElementById("mm").value = "";
+                    document.getElementById("dam").value = "";
+                    document.getElementById("hm").value = "";
+                    document.getElementById("km").value = "";
+                    document.getElementById("metros").value = "";
+                }
+            </script>
+            <style>
+
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Conversor de metros</h2>
+        <input type="text" id="metros">metros <br><br>
+        <button type="button" onclick="calc()">Converter</button><br><br>
+        <input type="text" id="dm" readonly>dm <br><br>
+        <input type="text" id="cm" readonly>cm <br><br>
+        <input type="text" id="mm" readonly>mm <br><br>
+        <input type="text" id="dam" readonly>Dam <br><br>
+        <input type="text" id="hm" readonly>Hm <br><br>
+        <input type="text" id="km" readonly>Km <br><br>
+        <button type="button" onclick="limpa()">Limpar campos</button><br><br>
+    </body>
+</html>

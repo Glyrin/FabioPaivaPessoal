@@ -1,0 +1,30 @@
+p{
+    color: white;
+    width: 120px;
+    text-align: center;
+    padding: 30px;
+}
+.tom{
+    background-color: tomato;
+}
+.ora{
+    background-color: orange;
+}
+.dod{
+    background-color: dodgerblue;
+}
+.med{
+    background-color: mediumseagreen;
+}
+.grey{
+    background-color: gray;
+}
+.slat{
+    background-color: slateblue;
+}
+.vio{
+    background-color: violet;
+}
+h2{
+    color: brown;
+}

@@ -1,0 +1,28 @@
+<html>
+    <head>
+            <title>Exercicio 30</title>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Iniciação aos Scripts</h2>
+        <p id="aqui2"></p>
+        <button type="button" onclick="alert('Pára quieto!')">Clica aqui</button><br><br>
+        <button type="button"
+        onclick="document.getElementById('aqui').innerHTML='Eu disse para não clicar'">Não cliques aqui</button><br><br>
+        <p id="aqui"></p>
+        <p id="aqui3"></p>
+        <script>
+            //Escreve no local com id=aqui2 o texto e a data
+            document.getElementById('aqui2').innerHTML="Eu também sou um script e "+ Date();
+            /*
+            Escreve no local com id=aqui o texto
+            que é substituído quando clicamos no 2º botão
+            */
+            document.getElementById('aqui').innerHTML="Texto";
+            let soma=5+3;
+            document.getElementById('aqui3').innerHTML="5 + 3 = "+ soma;
+        </script>
+    </body>
+</html>

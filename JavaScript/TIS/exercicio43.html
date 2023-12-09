@@ -1,0 +1,32 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 43</title>
+            <style>
+                button{
+                    background-color: blue;
+                    color: aliceblue;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Formadores</h2>
+        <button type="button" onclick="executa()">Listar</button>
+        <p id="n"></p>
+        
+        <script>
+            function executa(){
+                const formadores=["Ana Maria Cleto", "José Sousa", "António Sousa", "Abílio Vieira", "Luís Cunha", "Margarida Fachada", "Maria João Portas"];
+            let t="";
+            for (let f of formadores){
+                t=t+f+"<br>";
+            }
+            
+            document.getElementById("n").innerHTML = t;
+            }
+        </script>
+    </body>
+</html>

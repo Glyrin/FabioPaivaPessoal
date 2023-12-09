@@ -1,0 +1,105 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 61</title>
+            
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap');
+                input{
+                    text-align: right;
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input{
+                    width: 400px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(95, 3, 3, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: burlywood;
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+
+                }
+                h2{
+                    text-align: center;
+                    color: goldenrod;
+                    font-family: 'Pacifico', cursive;
+                    font-size: 50px;
+                }
+                body{
+                    background: radial-gradient(rgb(0, 0, 0), rgb(29, 3, 3));
+                }
+                button{
+                    width: 195px;
+                    height: 50px;
+                    border-radius: 55px;
+                    border: none;
+                    background-color: rgb(218, 165, 32);
+                    font-family: 'Pacifico', cursive;
+                    font-size: larger;
+                }
+                .texto{
+                    color: goldenrod;
+                    font-family: 'Permanent Marker', cursive;
+                    font-size: large;
+                }
+            </style>
+            <script>
+                function limpa(){
+                    document.getElementById("n1").value = "";
+                    document.getElementById("n2").value = "";
+                    document.getElementById("n3").value = "";
+                    document.getElementById("maior").value = "";
+                    document.getElementById("tri").value = "";
+                }
+                function triangulo(){
+                    let n1= parseInt(document.getElementById("n1").value);
+                    let n2= parseInt(document.getElementById("n2").value);
+                    let n3= parseInt(document.getElementById("n3").value);
+                    let m=n1;
+                    let tri="Não!";
+                    if (n2>m){m=n2;}
+                    if (n3>m){m=n3;}
+                    if(m==n1){
+                        if (m<n2+n3){
+                            tri="Sim!"
+                        }
+                    }
+                    if(m==n2){
+                        if (m<n1+n3){
+                            tri="Sim!"
+                        }
+                    }
+                    if(m==n3){
+                        if (m<n2+n1){
+                            tri="Sim!"
+                        }
+                    }
+                    document.getElementById("maior").value="Maior de "+n1+", "+n2+", "+n3+" = "+m;
+                    document.getElementById("tri").value=tri;
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Pode ser triângulo?</h2>
+        <div align="center">
+            <input type="number" id="n1" placeholder="Insira o número"> <br><br>
+            <input type="number" id="n2" placeholder="Insira o número"> <br><br>
+            <input type="number" id="n3" placeholder="Insira o número"> <br><br>
+            <button type="button" onclick="triangulo()">Determinar</button>
+            <button type="button" onclick="limpa()">Limpar Campos</button> <br><br>
+            <div class="texto">Número maior</div> <br>
+            <input type="text" id="maior" readonly> <br><br>
+            <div class="texto">É triangulo?</div> <br>
+            <input type="text" id="tri" readonly>
+        </div>
+    </body>
+</html>

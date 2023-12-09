@@ -1,0 +1,72 @@
+<html>
+    <head>
+            <title>Exercicio 25</title>
+            <style>
+                body{
+                    background-color: lightgray;
+                }
+                form{
+                    width: 400px; height: 200px;
+                    padding: 10px;
+                }
+                label{
+                    /*width: 200px; não adianta largura no label*/
+                    color: white;
+                }
+                .burros{
+                    margin-top: 30px;
+                    width: 200px;
+                }
+                input{
+                    margin-top: 30px;
+                    width: 200px;
+                }
+                .botao{
+                    width: 100px;
+                    margin-top: 30px;
+                }
+                .esquerda{
+                    width: 200px;
+                    position: absolute;
+                    left: 15px;
+                    margin-top: 9px;
+                }
+                .direita{
+                    width: 200px;
+                    position: absolute;
+                    left: 130px;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Formulários</h2>
+        <p>Inscreva-se na nossa newsletter para ser muito mais feliz!</p>
+        <form action="" method="post">
+            <div class="esquerda">
+                <div class="burros"><label for="">Nome</label></div>
+                <div class="burros"><label for="">Apelido</label></div>
+                <div class="burros"><label for="">Email</label></div>
+                <div class="burros"><label for="">Morada</label></div>
+                <div class="burros"><label for="">Código Postal</label></div>
+                <div class="burros"><label for="">Data de Nascimento</label></div>
+                <div class="burros"><label for="">Curso</label></div>
+                <input class="botao" type="submit" value="Increver">
+            </div>
+            <div class="direita">
+                <input type="text" id="nome" name="nome" required>
+                <input type="text" id="apelido" name="apelido">
+                <input type="email" id="email" name="email" required>
+                <input type="text" id="morada" name="morada" required>
+                <input type="text" id="cpostal" name="cpostal" required>
+                <input type="date" id="dn" name="dn" required>
+                <input class="botao" type="reset" value="Cancelar">
+                <select name="curso" id="curso">
+                    <option value="TIS">Técnico de Informática de Sistemas</option>
+                </select>
+            </div>
+        </form>
+    </body>
+</html>

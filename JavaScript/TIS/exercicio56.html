@@ -1,0 +1,39 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 56</title>
+            <script>
+                function calc(){
+                    let preco=parseFloat(document.getElementById("preco").value);
+                    let desconto = (preco*0.85);
+                    document.getElementById("desconto").value=desconto.toFixed(2) + " €"
+                }
+                function limpa(){
+                    document.getElementById("preco").value = "";
+                    document.getElementById("desconto").value = "";
+                }
+            </script>
+
+            <style>
+                input{
+                    text-align: right;
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Descontos</h2>
+
+        Preço <input type="number" id="preco"> <br><br>
+        <button type="button" onclick="calc()">Calcular</button>
+        <button type="button" onclick="limpa()">Limpar campos</button> <br><br>
+        Preço com desconto <input type="text" id="desconto" readonly> <br><br>
+    </body>
+</html>

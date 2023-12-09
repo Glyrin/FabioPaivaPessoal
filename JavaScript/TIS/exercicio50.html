@@ -1,0 +1,62 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 50</title>
+            <script>
+                function calcula(){
+                    let peso = document.getElementById("peso").value;
+                    let altura = document.getElementById("altura").value;
+                    let imc = 0;
+                    imc= peso/((altura/100)*(altura/100))
+                    document.getElementById("imc").value=imc.toPrecision(4);
+                }
+                function clear(){
+                    document.getElementById("peso").value="";
+                    document.getElementById("altura").value="";
+                    document.getElementById("imc").value="";
+                }
+            </script>
+
+            <style>
+                body{
+                    font-family: 'Acme', sans-serif;
+                    font-size: 20px;
+                    color: #2c3e50;
+                    background-color: #DFDBE5;
+                }
+                input{
+                    width: 207px;
+                    height: 30px;
+                    text-align: right;
+                    background-color: #2c3e50;
+                    color: antiquewhite;
+                }
+                button{
+                    background-color: #2c3e50;
+                    color: antiquewhite;
+                    width: 100px;
+                    height: 20px;
+                    font-family: 'Acme', sans-serif;
+                    font-size: 13px;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Calcular o IMC</h2>
+
+        <div>
+            Peso<br>
+            <input type="number" id="peso" placeholder="Peso em quilos"><br><br>
+            Altura<br>
+            <input type="number" id="altura" placeholder="Altura em centímetros"><br><br>
+            IMC<br>
+            <input type="number" id="imc" readonly placeholder="O seu IMC"><br><br>
+            <button type="button" onclick="calcula()">Calcular IMC</button>
+            <button type="button" onclick="clear()">Limpar</button>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+            <title>Exercicio 41</title>
+            <style>
+                button{
+                    background-color: blue;
+                    color: aliceblue;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Ciclos</h2>
+        <!-- Quantos números? <input type="text" id="qt"><br><br> -->
+        <button type="button" onclick="executa()">Executar</button>
+        <p id="n"></p>
+        
+        <script>
+            function executa(){
+                const cidades=["Porto", "Coimbra", "Leiria", "Faro", "Beja"]; //constante, array
+            let t="";
+            //let n=parseInt(document.getElementById("qt").value);
+            for (let i in cidades){
+                t=t+"Cidade: "+cidades[i]+"<br>"; //acede ao valor da cidade usando o índice que inicia no 0
+            }
+            
+            document.getElementById("n").innerHTML = t;
+            }
+        </script>
+    </body>
+</html>

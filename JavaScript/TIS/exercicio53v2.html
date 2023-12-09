@@ -1,0 +1,55 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 53v2</title>
+            <script>
+                function mostra(){
+                    document.getElementById("bit").value = 1/8;
+                    document.getElementById("B").value = 1;
+                    document.getElementById("KB").value = 1*1024;
+                    document.getElementById("MB").value = 1*(1024**2); // **x faz elevado à potência x
+                    document.getElementById("GB").value = 1*(1024**3);
+                    document.getElementById("TB").value = 1*(1024**4);
+                    document.getElementById("PB").value = 1*(1024**5);
+                    document.getElementById("EB").value = 1*(1024**6);
+                    document.getElementById("ZB").value = 1*(1024**7);
+                    document.getElementById("YB").value = 1*(1024**8);
+                }
+                function limpa(){
+                    document.getElementById("B").value = "";
+                    document.getElementById("KB").value = "";
+                    document.getElementById("MB").value = "";
+                    document.getElementById("bit").value = "";
+                    document.getElementById("GB").value = "";
+                    document.getElementById("TB").value = "";
+                    document.getElementById("PB").value = "";
+                    document.getElementById("EB").value = "";
+                    document.getElementById("ZB").value = "";
+                    document.getElementById("YB").value = "";
+                    
+                }
+            </script>
+            <style>
+
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Tabela de unidades de armazenamento</h2>
+        Quantos bytes tem cada unidade? <br><br>
+        <button type="button" onclick="mostra()">Mostrar</button><br><br>
+        1 bit = <input type="text" id="bit" readonly>bytes <br><br>
+        1 B = <input type="text" id="B" readonly>byte <br><br>
+        1 KB = <input type="text" id="KB" readonly>bytes <br><br>
+        1 MB = <input type="text" id="MB" readonly>bytes <br><br>
+        1 GB = <input type="text" id="GB" readonly>bytes <br><br>
+        1 TB = <input type="text" id="TB" readonly>bytes <br><br>
+        1 PB = <input type="text" id="PB" readonly>bytes <br><br>
+        1 EB = <input type="text" id="EB" readonly>bytes <br><br>
+        1 ZB = <input type="text" id="ZB" readonly>bytes <br><br>
+        1 YB = <input type="text" id="YB" readonly>bytes <br><br>
+        <button type="button" onclick="limpa()">Limpar campos</button><br><br>
+    </body>
+</html>

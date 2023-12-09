@@ -1,0 +1,108 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 63</title>
+            
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap');
+                input{
+                    text-align: right;
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input{
+                    width: 400px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(3, 12, 95, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+
+                }
+                h2{
+                    text-align: center;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Pacifico', cursive;
+                    font-size: 50px;
+                }
+                body{
+                    background: radial-gradient(rgb(0, 0, 0), rgb(5, 23, 56));
+                }
+                button{
+                    width: 195px;
+                    height: 50px;
+                    border-radius: 55px;
+                    border: none;
+                    background-color: rgb(241, 234, 215);
+                    font-family: 'Pacifico', cursive;
+                    font-size: larger;
+                    color: rgb(5, 23, 56);
+                }
+                .saida{
+                    width: 400px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(3, 12, 95, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+                }
+                .texto{
+                    color: rgb(241, 234, 215);
+                    font-family: 'Permanent Marker', cursive;
+                    font-size: large;
+                }
+            </style>
+            <script>
+                function limpar(){
+                    document.getElementById("lado1").value = "";
+                    document.getElementById("lado2").value = "";
+                    document.getElementById("area").innerHTML = "";
+                    document.getElementById("perim").innerHTML = "";
+                }
+                function calculo(){
+                    let lado1 = parseFloat(document.getElementById("lado1").value);
+                    let lado2 = parseFloat(document.getElementById("lado2").value);
+                    let a = area(lado1,lado2);
+                    let p = perimetro(lado1,lado2);
+                    document.getElementById("area").innerHTML = a+" m<sup>2</sup>";
+                    document.getElementById("perim").innerHTML = p+" metros";
+
+                }
+                function area(l1, l2){
+                    let ar=l1*l2;
+                    return ar;
+                }
+                function perimetro(t1, t2){
+                    let pr=2*t1+2*t2;
+                    return pr;
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Parque infantil</h2>
+        <div align="center">
+            <input type="number" id="lado1" placeholder="Insira um dos lados em metros"> <br><br>
+            <input type="number" id="lado2" placeholder="Insira o outro lado em metros"> <br><br>
+            <button type="button" onclick="calculo()">Calcular</button>
+            <button type="button" onclick="limpar()">Limpar Campos</button> <br><br>
+            <span class="texto">A área é </span> <br>
+            <div class="saida" id="area"></div> <br>
+            <span class="texto">O perímetro é </span> <br>
+            <div class="saida" id="perim"></div> <br>
+            <span class="texto">Quadrados de borracha necessários </span> <br>
+            <div class="saida" id="quadrados"></div> <br>
+        </div>
+    </body>
+</html>

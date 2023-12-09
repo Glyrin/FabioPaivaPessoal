@@ -1,0 +1,118 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 51</title>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap');
+                /*
+                font-family: 'Pacifico', cursive;
+                font-family: 'Permanent Marker', cursive;
+                font-family: 'Patrick Hand', cursive;
+                */
+                /* limpa as setas nos input de type number*/
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input{
+                    width: 250px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(95, 3, 3, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: burlywood;
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+
+                }
+                h2{
+                    text-align: center;
+                    color: goldenrod;
+                    font-family: 'Pacifico', cursive;
+                    font-size: 50px;
+                }
+                body{
+                    background: radial-gradient(rgb(0, 0, 0), rgb(29, 3, 3));
+                }
+                button{
+                    width: 190px;
+                    height: 50px;
+                    border-radius: 55px;
+                    border: none;
+                    background-color: rgb(218, 165, 32);
+                    font-family: 'Pacifico', cursive;
+                    font-size: larger;
+                }
+                button:hover{
+                    width: 190px;
+                    height: 50px;
+                    border-radius: 55px;
+                    border: none;
+                    background-color: rgb(231, 21, 14);
+                    font-family: 'Pacifico', cursive;
+                    font-size: larger;
+                }
+                .table{
+                    color: goldenrod;
+                    font-family: 'Permanent Marker', cursive;
+                    font-size: large;
+                }
+                
+            </style>
+            <script>
+                function calcula(){
+                    /*
+                    let ... - nomeia uma variável para utilizar depois
+                    =document.getElementById("...").value - lê a informação contida no campo ... como texto
+                    parseInt - transforma o valor lido num número inteiro
+                    parseFloat - transforma o valor lido num número com capacidade décimal
+                    */
+                    let nome=document.getElementById("nome").value;
+                    let trab=parseFloat(document.getElementById("trab").value);
+                    let teste=parseFloat(document.getElementById("teste").value);
+                    let media=(trab+teste)/2; // faz a conta da média
+                    let res = nome + " - Média: " + media; // dá o resultado através da junção de 2 variáveis
+                    document.getElementById("res").value=res; // dá o resultado no campo res
+                }
+                function limpar(){
+                    document.getElementById("nome").value="";
+                    document.getElementById("trab").value="";
+                    document.getElementById("teste").value="";
+                    document.getElementById("res").value="";
+                    // isto vai limpar todos os campos mencionados nas linhas acima
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <br><br><br><br>
+        <h2>Notas</h2> <br>
+
+        <table width="400" align="center" class="table">
+            <tr>
+                <td width="40%">Nome:</td>
+                <td><input type="text" id="nome" placeholder="Insira o seu nome"></td><!-- type text deixa inserir qualquer tipo de caracteres de entrada -->
+            </tr>
+            <tr>
+                <td>Nota trabalho:</td>
+                <td><input type="number" id="trab" placeholder="Insira a nota do trabalho"></td>
+            </tr>
+            <tr>
+                <td>Nota teste:</td>
+                <td><input type="number" id="teste" placeholder="Insira a nota do teste"></td><!-- type number apenas restringe o tipo de caracteres de entrada -->
+            </tr>
+            <tr align="center">
+                <td colspan="2"><button type="button" onclick="calcula()">Calcular nota final</button>
+                <button type="button" onclick="limpar()">Limpar campos</button></td>
+            </tr>
+            <tr>
+                <td>Resultado:</td>
+                <td><input type="text" id="res" readonly placeholder="Vai ver a sua nota final"></td> <!-- readonly não deixa escrever -->
+            </tr>
+        </table>
+    </body>
+</html>

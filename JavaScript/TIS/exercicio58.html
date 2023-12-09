@@ -1,0 +1,46 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 58</title>
+            <script>
+                function calc(){
+                    let nasce=parseInt(document.getElementById("nasce").value);
+                    let ano=new Date().getFullYear();
+                    let idade=ano-nasce;
+                    document.getElementById("idade").value=idade + " anos";
+                    if(idade<18){
+                        document.getElementById("voto").value="Ups, não podes.";
+                    }else{
+                        document.getElementById("voto").value="Vai-te a eles.";
+                    }
+                }
+                function limpa(){
+                    document.getElementById("nasce").value = "";
+                    document.getElementById("idade").value = "";
+                    document.getElementById("voto").value = "";
+                }
+            </script>
+            <style>
+                input{
+                    text-align: right;
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Direito ao voto</h2>
+
+        Ano de Nascimento <input type="number" id="nasce"> <br><br>
+        <button type="button" onclick="calc()">Calcular multa</button>
+        <button type="button" onclick="limpa()">Limpar campos</button> <br><br>
+        Idade <input type="text" id="idade" readonly> <br><br>
+        Pode votar? <input type="text" id="voto" readonly> <br><br>
+    </body>
+</html>

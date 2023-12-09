@@ -1,0 +1,57 @@
+<html>
+    <head>
+            <title>Exercicio 35</title>
+            <style>
+                input{
+                    width: 200px;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body onload="inicio()">
+        <h2>Texto em Javascript</h2>
+        <input type="text" id="nome"><br><br>
+        <button type="button" onclick="clicaste()">Click</button><br><br>
+        <input type="text" id="res1" readonly><br><br>
+        <input type="text" id="min" readonly><br><br>
+        <input type="text" id="mai" readonly><br><br>
+        <input type="text" id="prim" readonly><br><br>
+        <input type="text" id="resto" readonly><br><br>
+        <input type="text" id="rep" readonly><br><br>
+
+        <script>
+            function inicio(){
+                alert("oiiiiiii")
+                document.getElementById("nome").focus();
+            }
+            function clicaste(){
+                let nome = document.getElementById("nome").value;
+                nome = nome.trim();
+                //alert ("carregaste 1 vez!")
+                if(nome==""){
+                    alert("Falta o nome!");
+                    document.getElementById("nome").focus();
+                }else{
+                    let n = nome.length;
+                    document.getElementById("res1").value="Número de carateres: "+n;
+                    let min = nome.toLowerCase();
+                    let mai = nome.toUpperCase();
+                    document.getElementById("min").value=min;
+                    document.getElementById("mai").value=mai;
+                    let s = nome.substr(0,1);
+                    document.getElementById("prim").value=s;
+                    let r = nome.substr(1,n-1);
+                    document.getElementById("resto").value=r;
+                    let rep=nome.replace("aria", "orcao"); //case sensitive
+                    document.getElementById("rep").value=rep;
+                }
+                
+            }
+            // function clicaste2(){
+            //     alert ("carregaste 2 vezes, e não era!")
+            // }
+        </script>
+    </body>
+</html>

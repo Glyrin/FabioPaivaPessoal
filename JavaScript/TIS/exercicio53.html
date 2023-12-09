@@ -1,0 +1,54 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 53</title>
+            <script>
+                function calc(){
+                    let MB=parseFloat(document.getElementById("MB").value);
+                    document.getElementById("KB").value = MB*1024;
+                    document.getElementById("B").value = MB*(1024**2); // **x faz elevado à potência x
+                    document.getElementById("bit").value = MB*(1024**2)*8;
+                    document.getElementById("GB").value = MB/1024;
+                    document.getElementById("TB").value = MB/(1024**2);
+                    document.getElementById("PB").value = MB/(1024**3);
+                    document.getElementById("EB").value = MB/(1024**4);
+                    document.getElementById("ZB").value = MB/(1024**5);
+                    document.getElementById("YB").value = MB/(1024**6);
+                }
+                function limpa(){
+                    document.getElementById("MB").value = "";
+                    document.getElementById("KB").value = "";
+                    document.getElementById("B").value = "";
+                    document.getElementById("bit").value = "";
+                    document.getElementById("GB").value = "";
+                    document.getElementById("TB").value = "";
+                    document.getElementById("PB").value = "";
+                    document.getElementById("EB").value = "";
+                    document.getElementById("ZB").value = "";
+                    document.getElementById("YB").value = "";
+                    
+                }
+            </script>
+            <style>
+
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Conversor de Megabytes</h2>
+        <input type="text" id="MB">MB <br><br>
+        <button type="button" onclick="calc()">Converter</button><br><br>
+        <input type="text" id="KB" readonly>KB <br><br>
+        <input type="text" id="B" readonly>B <br><br>
+        <input type="text" id="bit" readonly>bit <br><br>
+        <input type="text" id="GB" readonly>GB <br><br>
+        <input type="text" id="TB" readonly>TB <br><br>
+        <input type="text" id="PB" readonly>PB <br><br>
+        <input type="text" id="EB" readonly>EB <br><br>
+        <input type="text" id="ZB" readonly>ZB <br><br>
+        <input type="text" id="YB" readonly>YB <br><br>
+        <button type="button" onclick="limpa()">Limpar campos</button><br><br>
+    </body>
+</html>

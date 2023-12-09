@@ -1,0 +1,98 @@
+<html>
+    <head>
+            <title>Exercicio 27</title>
+            <style>
+                body{
+                    background-color: lightgray;
+                }
+                form{
+                    width: 400px; height: 200px;
+                    padding: 10px;
+                }
+                label{
+                    /*width: 200px; não adianta largura no label*/
+                    padding: 1px;
+                    color: white;
+                }
+                .burros{
+                    margin-top: 30px;
+                    width: 200px;
+                    padding-bottom: 3.5px;
+                }
+                input{
+                    margin-top: 30px;
+                    width: 200px;
+                }
+                .botao{
+                    width: 100px;
+                    margin-top: 30px;
+                }
+                .esquerda{
+                    width: 200px;
+                    position: absolute;
+                    left: 15px;
+                }
+                .direita{
+                    width: 300px;
+                    position: absolute;
+                    left: 230px;
+                }
+                .insc{
+                    width: 400px;
+                    position: absolute;
+                    bottom: 100px;
+                }
+                .check{
+                    margin-top: 10px;
+                    width: 20px;
+                }
+                .etiq{
+                    width: 250px;
+                }
+            </style>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Formulários</h2>
+        <p>Inscreva-se na nossa newsletter para ser muito mais feliz!</p>
+        <form action="mailto:4800936@formacao.iefp.pt" method="post">
+            <div class="esquerda">
+                <div class="burros"><label for="">Nome</label></div>
+                <div class="burros"><label for="">Apelido</label></div>
+                <div class="burros"><label for="">Email</label></div>
+                <div class="burros"><label for="">Morada</label></div>
+                <div class="burros"><label for="">Código Postal</label></div>
+                <div class="burros"><label for="">Data de Nascimento</label></div>
+                <div class="burros"><label for="">Curso(s)</label></div>
+                <div class="burros"> </div>
+                <div class="burros"><label for="">Situação face ao emprego:</label></div>
+            </div>
+            <div class="direita">
+                <input type="text" id="nome" name="nome" required>
+                <input type="text" id="apelido" name="apelido">
+                <input type="email" id="email" name="email" required>
+                <input type="text" id="morada" name="morada" required>
+                <input type="text" id="cpostal" name="cpostal" required>
+                <input type="date" id="dn" name="dn" required><br>
+                <input class="check" type="checkbox" name="curso1" id="curso1" value="TIS">
+                <label for="curso1">Técnico de Informática e Sistemas</label><br> 
+                <input class="check" type="checkbox" name="curso3" id="curso3" value="TPR">
+                <label for="curso3">Técnico de Programação</label><br>
+                <input class="check" type="checkbox" name="curso4" id="curso4" value="TRD">
+                <label for="curso4">Técnico de Redes</label><br><br>
+                <input class="check" type="radio" id="empregado" name="sfe" value="Empregado">
+                <label >Empregado</label><br>
+                <input class="check" type="radio" id="desempregado" name="sfe" value="Desempregado">
+                <label >Desmpregado</label><br>
+                <input class="check" type="radio" id="outro" name="sfe" value="Outro">
+                <label >Outro</label><br>
+            </div> 
+            <div class="insc">
+                <input class="botao" type="submit" value="Increver">
+                <input class="botao" type="reset" value="Cancelar">
+            </div>
+        </form>
+    </body>
+</html>

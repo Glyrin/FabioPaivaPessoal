@@ -1,0 +1,43 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 60</title>
+            
+            <style>
+                input{
+                    text-align: right;
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            </style>
+            <script>
+                function limpa(){
+                    document.getElementById("ano").value = "";
+                    document.getElementById("res").value = "";
+                }
+                function calc(){
+                    let ano= parseInt(document.getElementById("ano").value);
+                    let res="";
+                    if((ano % 4 ==0 && ano % 100 !=0) || (ano % 400 ==0)){
+                        res="O ano "+ ano+" é bissexto";
+                    }else{
+                        res="O ano " + ano+" é comum";
+                    }
+                    document.getElementById("res").value=res;
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Bissexto ou normal?</h2>
+        <input type="number" id="ano" placeholder="Insira o ano"> <br><br>
+        <button type="button" onclick="calc()">Definir</button>
+        <button type="button" onclick="limpa()">Limpar</button> <br><br>
+        <input type="text" id="res" readonly>
+    </body>
+</html>

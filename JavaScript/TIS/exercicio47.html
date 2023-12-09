@@ -1,0 +1,64 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 47</title>
+    <script>
+        function executa(){
+            let mes=parseInt(document.getElementById("mes").value);
+            let ext="";
+            switch (mes){
+                case 1:
+                    ext="Janeiro";
+                    break;
+                case 2:
+                    ext="Fevereiro";
+                    break;
+                case 3:
+                    ext="Março";
+                    break;
+                case 4:
+                    ext="Abril";
+                    break;
+                case 5:
+                    ext="Maio";
+                    break;
+                case 6:
+                    ext="Junho";
+                    break;
+                case 7:
+                    ext="Julho";
+                    break;
+                case 8:
+                    ext="Agosto";
+                    break;
+                case 9:
+                    ext="Setembro";
+                    break;
+                case 10:
+                    ext="Outubro";
+                    break;
+                case 11:
+                    ext="Novembro";
+                    break;
+                case 12:
+                    ext="Dezembro";
+                    break;
+                default:
+                    ext="Tenta outra vez!!!";
+                    document.getElementById("mes").value="";
+                    document.getElementById("mes").focus();
+            }
+            document.getElementById("ext").value=ext;
+        }
+    </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Meses por extenso</h2>
+        <input type="text" id="mes"><br><br>
+        <button type="button" onclick="executa()">Extenso</button><br><br>
+        <input type="text" id="ext" readonly>
+    </body>
+</html>

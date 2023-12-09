@@ -1,0 +1,123 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 64</title>
+            
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap');
+                input{
+                    text-align: right;
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input{
+                    width: 400px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(76, 150, 8, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+
+                }
+                h2{
+                    text-align: center;
+                    color: rgb(233, 236, 44);
+                    font-family: 'Pacifico', cursive;
+                    font-size: 50px;
+                }
+                body{
+                    background: radial-gradient(rgb(0, 0, 0), rgb(5, 56, 16));
+                }
+                button{
+                    width: 195px;
+                    height: 50px;
+                    border-radius: 55px;
+                    border: none;
+                    background-color: rgb(21, 35, 160);
+                    font-family: 'Pacifico', cursive;
+                    font-size: larger;
+                    color: rgb(233, 236, 44);
+                }
+                .saida{
+                    width: 400px;
+                    height: 30px;
+                    border-radius: 55px;
+                    background-color: rgba(76, 150, 8, 0.473);
+                    text-align: center;
+                    border: none;
+                    color: rgb(241, 234, 215);
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: large;
+                }
+                .texto{
+                    color: rgb(233, 236, 44);
+                    font-family: 'Permanent Marker', cursive;
+                    font-size: large;
+                }
+            </style>
+            <script>
+                function limpar(){
+                    document.getElementById("lado1").value = "";
+                    document.getElementById("lado2").value = "";
+                    document.getElementById("pl1").value = "";
+                    document.getElementById("pl2").value = "";
+                    document.getElementById("area").innerHTML = "";
+                    document.getElementById("perim").innerHTML = "";
+                    document.getElementById("pav").innerHTML = "";
+                }
+                function calculo(){
+                    let lado1 = parseFloat(document.getElementById("lado1").value);
+                    let lado2 = parseFloat(document.getElementById("lado2").value);
+                    let pl1 = parseFloat(document.getElementById("pl1").value);
+                    let pl2 = parseFloat(document.getElementById("pl2").value);
+                    let a = area(lado1,lado2);
+                    let a2 = area(pl1,pl2);
+                    let p = perimetro(lado1,lado2);
+                    let pav = pavimento(a,a2);
+                    document.getElementById("area").innerHTML = a+" m<sup>2</sup> &#128208";
+                    document.getElementById("perim").innerHTML = p+" metros &#128207";
+                    document.getElementById("pav").innerHTML = pav+" unidades pavimento &#128179";
+
+                }
+                function area(l1, l2){
+                    let ar=l1*l2;
+                    return ar;
+                }
+                function perimetro(t1, t2){
+                    let pr=2*t1+2*t2;
+                    return pr;
+                }
+                function pavimento(areat,areap){
+                    let q = areat/areap;
+                    q=Math.ceil(q);
+                    return q;
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Pavimento de parque infantil</h2>
+        <div align="center">
+            <input type="number" id="lado1" placeholder="Insira o lado 1 em metros"> <br><br>
+            <input type="number" id="lado2" placeholder="Insira o lado 2 em metros"> <br><br>
+            <input type="number" id="pl1" placeholder="Insira o lado 1 do pavimento em metros"> <br><br>
+            <input type="number" id="pl2" placeholder="Insira o lado 2 do pavimento em metros"> <br><br>
+            <button type="button" onclick="calculo()">Calcular</button>
+            <button type="button" onclick="limpar()">Limpar Campos</button> <br><br>
+            <span class="texto">A área é </span> <br>
+            <div class="saida" id="area"></div> <br>
+            <span class="texto">O perímetro é </span> <br>
+            <div class="saida" id="perim"></div> <br>
+            <span class="texto">Pavimento necessário </span> <br>
+            <div class="saida" id="pav"></div> <br>
+        </div>
+    </body>
+</html>

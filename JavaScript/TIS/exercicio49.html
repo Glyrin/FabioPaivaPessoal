@@ -1,0 +1,109 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 49</title>
+            <link rel="stylesheet" href="exercicio49.css">
+
+            <script>
+                let tmp=""; // para ler o número do botão
+                let op=""; // para ler a operação do botão
+                let n1, n2; // 3 variáveis globais
+                let strn1="";
+                let res="";
+                function soma(a,b){
+                    let s= a+b;
+                    return s;
+                }
+                function subtrai(a,b){
+                    let s= a-b;
+                    return s;
+                }
+                function multiplica(a,b){
+                    let s= a*b;
+                    return s;
+                }
+                function divide(a,b){
+                    let s="";
+                    if(b==0){s="erro";}else{
+                    let n= a/b;
+                    s=n.toString();}
+                    return s;
+                }
+                function opera(tmp){
+                    document.getElementById("visor").value+=tmp;
+                }
+                function calc(val){
+                    op=val;
+                    strn1=document.getElementById("visor").value;
+                    document.getElementById("visor2").value=strn1+op;
+                    n1=parseFloat(strn1);
+                    document.getElementById("visor").value=""; // limpa visor
+                }
+                function conta(){
+                    let strn2=document.getElementById("visor").value;
+                    let s;
+                    if ((op=="") || (strn1=="") || (strn2=="")){
+                        alert("Falta aí qualquer coisa.")
+                    }else if(strn2==0 && op==":"){
+                        document.getElementById("visor2").value += strn2+" = ";
+                        document.getElementById("visor").value=("Erro");
+                        op="";
+                    }else{
+                        n2 = parseFloat(strn2);
+                        switch(op){
+                            case "+": s=soma(n1,n2); break;
+                            case "-": s=subtrai(n1,n2); break;
+                            case "x": s=multiplica(n1,n2); break;
+                            case ":": s=divide(n1,n2); break;
+                            default: s=0;
+                        }
+                        document.getElementById("visor2").value += strn2+" = ";
+                        document.getElementById("visor").value=parseFloat(s.toPrecision(9));
+                        op="";
+                    }
+                }
+                function limpa(){ // limpa tudo
+                    document.getElementById("visor").value="";
+                    document.getElementById("visor2").value="";
+                    op="";
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Calculadora</h2>
+
+        <div class="Calculadora">
+
+            <input type="text" class="visor2" id="visor2">
+            <input type="text" class="visor" id="visor">
+
+            <div class="botoes_calculadora">
+                <button type="button" class="operador" onclick="calc('+')">+</button>
+                <button type="button" class="operador" onclick="calc('-')">-</button>
+                <button type="button" class="operador" onclick="calc('x')">x</button>
+                <button type="button" class="operador" onclick="calc(':')">:</button>
+
+                <button type="button" onclick="opera('7')">7</button>
+                <button type="button" onclick="opera('8')">8</button>
+                <button type="button" onclick="opera('9')">9</button>
+          
+                <button type="button" onclick="opera('4')">4</button>
+                <button type="button" onclick="opera('5')">5</button>
+                <button type="button" onclick="opera('6')">6</button>
+          
+                <button type="button" onclick="opera('1')">1</button>
+                <button type="button" onclick="opera('2')">2</button>
+                <button type="button" onclick="opera('3')">3</button>
+          
+                <button type="button" onclick="opera('0')">0</button>
+                <button type="button" class="decimal" onclick="opera('.')">.</button> 
+                <button type="button" class="limpa" onclick="limpa()">AC</button>
+
+                <button type="button" class="operador_conta" onclick="conta()">=</button>
+            </div>
+        </div>        
+    </body>
+</html>

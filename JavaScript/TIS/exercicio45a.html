@@ -1,0 +1,31 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+            <title>Exercicio 45a</title>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Ciclos</h2>
+        Nome do aluno: <input type="text" id="nome"><br><br>
+        <button type="button" onclick="executa()">Executar</button>
+        <p id="n"></p>
+        <script>
+            function executa(){
+                let lista="";
+                let nome=document.getElementById("nome").value;
+                if (nome==""){
+                    alert("Nome é obrigatório!");
+                    document.getElementById("nome").focus();
+                }else{
+                let n=nome.length-1
+                    for (let i=n; i>=0;i--){
+                        lista=lista+nome[i];
+                    }
+                document.getElementById("n").innerHTML = lista;
+                }
+            }
+        </script>
+    </body>
+</html>

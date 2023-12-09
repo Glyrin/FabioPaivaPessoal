@@ -1,0 +1,26 @@
+<html>
+    <head>
+            <title>Exercicio 38</title>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Ciclos</h2>
+        Quantas turmas? <input type="text" id="qt"><br><br>
+        <button type="button" onclick="executa()">Executar</button>
+        <p id="n"></p>
+        
+        <script>
+            function executa(){
+            let t="";
+            let n=parseInt(document.getElementById("qt").value);
+            for (let i=1; i<=n; i++){ //declara com let, inicializa com 1 e itera a variável i com mais 1
+                t=t+"Turma "+i+"<br>";
+            }
+            
+            document.getElementById("n").innerHTML = t;
+            }
+        </script>
+    </body>
+</html>

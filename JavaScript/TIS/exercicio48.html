@@ -1,0 +1,42 @@
+<html>
+    <head>
+            <title>Exercicio 48</title>
+            <style>
+            input{
+                width: 50px;
+                text-align: right;
+            }
+            </style>
+            <script>
+                function conta(){
+                    let n1 = parseInt(document.getElementById("n1").value);
+                    let n2 = parseInt(document.getElementById("n2").value);
+                    let op = document.getElementById("op").value;
+                    let s = 0;
+                    switch(op){
+                        case "+": s=n1+n2; break;
+                        case "-": s=n1-n2; break;
+                        case "x": s=n1*n2; break;
+                        case "*": s=n1*n2; break;
+                        case "/": s=n1/n2; break;
+                        case ":": s=n1/n2; break;
+                        default: s=0
+                    }
+                    document.getElementById("res").value=s;
+                }
+            </script>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Principio da calculadora</h2>
+        <input type="number" id="n1">
+        <input type="text" id="op">
+        <input type="number" id="n2">
+        =
+        <input type="number" id="res" readonly><br><br>
+        <button type="button" onclick="conta()">Calcular</button>
+        
+    </body>
+</html>

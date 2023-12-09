@@ -1,0 +1,31 @@
+<html>
+    <head>
+            <title>Exercicio 36</title>
+    </head>
+    <!--
+
+    -->
+    <body>
+        <h2>Maior número</h2>
+        <input type="text" id="n1"><br><br>
+        <input type="text" id="n2"><br><br>
+        <input type="text" id="n3"><br><br>
+        <input type="text" id="maior" readonly><br><br>
+        <button type="button" onclick="maior()">Qual é o maior?</button>
+        <script>
+            function maior(){
+                let n1 = parseInt(document.getElementById("n1").value);
+                let n2 = parseInt(document.getElementById("n2").value);
+                let n3 = parseInt(document.getElementById("n3").value);
+                /* let m;
+                if (n1>n2){m=n1;}
+                else{m=n2;}
+                if (n3>m){m=n3;} */
+                let m=n1;
+                if (n2>m){m=n2;}
+                if (n3>m){m=n3;}
+                document.getElementById("maior").value="Maior de "+n1+", "+n2+", "+n3+" = "+m;
+            }
+        </script>
+    </body>
+</html>
